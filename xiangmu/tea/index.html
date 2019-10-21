@@ -7,7 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>起飞页--tea</title>
     <link rel="stylesheet" href="./js/_swiper@4.5.0@swiper/dist/css/swiper.min.css">
-    <link rel='stylesheet' href="https://at.alicdn.com/t/font_1317469_gb1wnp6qfwn.css">
+    <link rel='stylesheet' href="http://at.alicdn.com/t/font_1317469_gb1wnp6qfwn.css">
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
     <style>
         * {
             margin: 0;
@@ -47,6 +48,7 @@
 
         .swiper-wrapper {
             max-width: 2698px;
+
         }
 
         /* .swiper-pagination,
@@ -176,8 +178,8 @@
                     src="https://ccdn.goodq.top/caches/9b69daffc17579b848483c854813cad2/aHR0cHM6Ly81Y2RkM2FhNWM0NmVhLnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTkvMDQvZjc0MTI0MDFiMDZjZjdjYmI4OTg5MTBjMTE2YzZlNzYucG5n.png">
             </div>
             <div style="min-height:72px;max-width:876px;float: left;padding:10px 0 0 400px;">
-                <div v-for='i in arr' class="nav" style="float: left;" @click="mr(i)">
-                    <a :href="i.path" :class='num==i.path?"as":""'>
+                <div v-for='i in arr' class="nav" style="float: left;" v-if='arr'>
+                    <a :href="'#'+i.path" :class='$route.path==i.path?"as":""'>
                         {{i.title}}
                     </a>
                 </div>
@@ -232,89 +234,89 @@
     <!-- 导航首页 -->
     <template id="no1">
         <div>
-            <div style="min-height:673px;position: relative;overflow: hidden;">
+            <div style="height:673px;width:100%; position: relative;">
                 <!-- 轮播图 -->
-                <div style="position: absolute;left:0;top:0;">
-                    <div class="swiper-container">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <div style="float: left;">
-                                    <img style="width:100%;height:100%;z-index: 1;"
+                <div class="lunbo" style="width: 100%;height:600px;background: red;">
+                    <div class="block">
+                        <el-carousel height="600px">
+                            <el-carousel-item>
+                                <h3>
+                                    <img style="width: 100%;height:100%;"
                                         src="https://ccdn.goodq.top/caches/9b69daffc17579b848483c854813cad2/aHR0cHM6Ly81Y2RkM2FhNWM0NmVhLnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTkvMDUvNTkxNjY4MzYwNTc4MTlhMDVjNGZmNmQ5NWFjMzU0OGIuanBn.jpg">
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div style="float: left;">
-                                    <img style="width:100%;height:100%;z-index: 1;"
+                                </h3>
+                            </el-carousel-item>
+                            <el-carousel-item height="600px">
+                                <h3>
+                                    <img style="width: 100%;height:100%;"
                                         src="https://ccdn.goodq.top/caches/9b69daffc17579b848483c854813cad2/aHR0cHM6Ly81Y2RkM2FhNWM0NmVhLnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTkvMDUvNjFhNzJlOWFhNThhNzVhZjY0ZGFlMjgzYTAzMDQ1NDAuanBn.jpg">
+                                </h3>
+                            </el-carousel-item>
+                        </el-carousel>
+                    </div>
+                </div>
+                <!-- 首页内容 -->
+                <div class="contents">
+                    <div style="min-height:1162px;background:#f7f7f7;padding:30px 40px;">
+                        <titles>
+                            <div slot='tt'>
+                                <div style="color:#232323;font-size:24px;">新茶上市</div>
+                                <p style="color:#999;font-size:13px;margin-top:5px;">Tea Leave</p>
+                            </div>
+                        </titles>
+                        <div style="min-height:970px;">
+                            <div class="sy" v-for='i in arr1'
+                                style="width:33%;  min-height:459px; text-align: center; float: left;">
+                                <div style="max-width:336px;min-height:336px; margin:0 auto; padding-bottom: 10px;">
+                                    <img style="width:100%;height:100%;" :src='i.img'>
+                                </div>
+                                <div class="sy-n" style="color:#555;font-size:16px;">{{i.name}}</div>
+                                <div class="sy-x" style="width:0;height:1px;background:#90af68;margin:10px 0 5px 0;">
+                                </div>
+                                <div style="color:#666;font-size:16px;padding:10px 0 15px;">{{i.price}}</div>
+                            </div>
+                        </div>
+                        <div style="min-height:64px;padding-top:20px;">
+                            <div
+                                style="width:100px;min-height:46px;text-align: center; background:#90af68;margin:0 auto;">
+                                <i class="iconfont icon-arrow-right" style="font-size:46px;color:#fff;"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="min-height:608px;">
+                        <div style="max-width: 900px;min-height:525px;margin:100px auto;">
+                            <div style="padding:10px 0 15px 0;margin-top:0px 0px 40px;">
+                                <titles>
+                                    <div slot='tt'>
+                                        <div style="color:#fff;font-size:24px;">关于我们</div>
+                                        <p style="color:#fff;font-size:13px;margin-top:5px;">About</p>
+                                    </div>
+                                </titles>
+                            </div>
+                            <div style="min-height:275px;background:#fff;display: flex; padding:10px;">
+                                <div style="width:522px;">
+                                    <img style="width:100%;"
+                                        src="https://ccdn.goodq.top/caches/9b69daffc17579b848483c854813cad2/aHR0cHM6Ly81Y2RkM2FhNWM0NmVhLnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTkvMDUvOGJiMjZlNDUwZjY0NjBkNWNiMmE4NTg4YjBhYTY5ZmMtNTQweDI4MC5qcGc_p_p100_p_3D.jpg">
+                                </div>
+                                <div style="flex: 1;padding:40px 60px;">
+                                    <div style="color:#808080;font-size:14px;line-height: 28px;">
+                                        茶叶源于中国，茶叶最早是被作为祭品使用的。但从春秋后期就被人们作为菜食，在西汉中期发展为药用，西汉后期才发展为宫廷高级饮料，普及民间作为普通饮料那是西晋以后的事。发现最早人工种植茶叶的遗迹在浙江余姚的田螺山遗址，已有6000多年的历史。饮茶始于中国。
+                                    </div>
+                                    <div
+                                        style="width:120px;min-height:44px;background:#90af68;color:#fff;line-height: 44px;text-align: center;margin-top:30px;">
+                                        了解更多
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="swiper-pagination" style=" position: relative;bottom: 40px"></div>
+                        <div style="min-height:100px;background:#fff;padding:70px 100px 0 100px;">
+                            <div v-for='i in arr2'
+                                style="max-width: 150px;min-height:60px; padding: 0 15px;float: left;">
+                                <img :src="i.img">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <!-- 首页内容 -->
-            <div class="contents">
-                <div style="min-height:1162px;background:#f7f7f7;padding:30px 40px;">
-                    <titles>
-                        <div slot='tt'>
-                            <div style="color:#232323;font-size:24px;">新茶上市</div>
-                            <p style="color:#999;font-size:13px;margin-top:5px;">Tea Leave</p>
-                        </div>
-                    </titles>
-                    <div style="min-height:970px;">
-                        <div class="sy" v-for='i in arr1'
-                            style="width:33%;  min-height:459px; text-align: center; float: left;">
-                            <div style="max-width:336px;min-height:336px; margin:0 auto; padding-bottom: 10px;">
-                                <img style="width:100%;height:100%;" :src='i.img'>
-                            </div>
-                            <div class="sy-n" style="color:#555;font-size:16px;">{{i.name}}</div>
-                            <div class="sy-x" style="width:0;height:1px;background:#90af68;margin:10px 0 5px 0;">
-                            </div>
-                            <div style="color:#666;font-size:16px;padding:10px 0 15px;">{{i.price}}</div>
-                        </div>
-                    </div>
-                    <div style="min-height:64px;padding-top:20px;">
-                        <div style="width:100px;min-height:46px;text-align: center; background:#90af68;margin:0 auto;">
-                            <i class="iconfont icon-arrow-right" style="font-size:46px;color:#fff;"></i>
-                        </div>
-                    </div>
-                </div>
-                <div style="min-height:608px;">
-                    <div style="max-width: 900px;min-height:525px;margin:100px auto;">
-                        <div style="padding:10px 0 15px 0;margin-top:0px 0px 40px;">
-                            <titles>
-                                <div slot='tt'>
-                                    <div style="color:#fff;font-size:24px;">关于我们</div>
-                                    <p style="color:#fff;font-size:13px;margin-top:5px;">About</p>
-                                </div>
-                            </titles>
-                        </div>
-                        <div style="min-height:275px;background:#fff;display: flex; padding:10px;">
-                            <div style="width:522px;">
-                                <img style="width:100%;"
-                                    src="https://ccdn.goodq.top/caches/9b69daffc17579b848483c854813cad2/aHR0cHM6Ly81Y2RkM2FhNWM0NmVhLnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTkvMDUvOGJiMjZlNDUwZjY0NjBkNWNiMmE4NTg4YjBhYTY5ZmMtNTQweDI4MC5qcGc_p_p100_p_3D.jpg">
-                            </div>
-                            <div style="flex: 1;padding:40px 60px;">
-                                <div style="color:#808080;font-size:14px;line-height: 28px;">
-                                    茶叶源于中国，茶叶最早是被作为祭品使用的。但从春秋后期就被人们作为菜食，在西汉中期发展为药用，西汉后期才发展为宫廷高级饮料，普及民间作为普通饮料那是西晋以后的事。发现最早人工种植茶叶的遗迹在浙江余姚的田螺山遗址，已有6000多年的历史。饮茶始于中国。
-                                </div>
-                                <div
-                                    style="width:120px;min-height:44px;background:#90af68;color:#fff;line-height: 44px;text-align: center;margin-top:30px;">
-                                    了解更多
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div style="min-height:100px;background:#fff;padding:70px 100px 0 100px;">
-                        <div v-for='i in arr2' style="max-width: 150px;min-height:60px; padding: 0 15px;float: left;">
-                            <img :src="i.img">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </template>
     <!-- 关于内容 -->
     <template id="no2">
@@ -530,8 +532,8 @@
                     </div>
                 </div>
             </div>
-            <div style="margin:40px 45px 0 200px;">
-                <div id="allmap" style="width:90%;height:400px;margin:0 auto;margin-top:50px;margin-bottom: 50px;">
+            <div style="margin:40px 45px 0 45px;">
+                <div style="width:1190px;min-height:400px; border:#ccc solid 1px;margin-left:5px;" id="dituContent">
                 </div>
             </div>
         </div>
@@ -560,6 +562,11 @@
         </div>
     </template>
 
+
+
+
+
+
     <template id='no5-1'>
         <div>
             全部新闻
@@ -576,11 +583,12 @@
         </div>
     </template>
 
+
+
 </body>
 <script src="./js/vue.js"></script>
 <script src="./js/vue-router.js"></script>
-<script src="https://api.map.baidu.com/api?v=3.0&ak=ZVxQBFByXwIR6q06AXIHvxOeIRKMkO1F"></script>
-
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
 <script>
 
     //首页--title
@@ -885,15 +893,7 @@
             {
                 path: '/no6', component: {
                     template: '#no6',
-                    mounted() {
-                        var map = new BMap.Map("allmap");
-                        // var point = new BMap.Point(116.331398, 39.897445);北京的经纬度
-                        map.addControl(new BMap.NavigationControl());
-                        map.addControl(new BMap.ScaleControl());
-                        map.addControl(new BMap.OverviewMapControl());
-                        map.addControl(new BMap.MapTypeControl());
-                        map.centerAndZoom('苏州市外河桥', 11);
-                    },
+
                     data() {
                         return {
                             arr1: [
@@ -911,39 +911,19 @@
         el: "#box",
         data: {
             arr: [
-                { title: '首页', path: '#/' },
-                { title: '关于', path: '#/no2' },
-                { title: '茶叶', path: '#/no3' },
-                { title: '基地', path: '#/no4' },
-                { title: '新闻', path: '#/no5' },
-                { title: '联系', path: '#/no6' },
+                { title: '首页', path: '/' },
+                { title: '关于', path: '/no2' },
+                { title: '茶叶', path: '/no3' },
+                { title: '基地', path: '/no4' },
+                { title: '新闻', path: '/no5' },
+                { title: '联系', path: '/no6' },
             ],
-            num: '#/'
         },
-        methods: {
-            mr(a) {
-                this.num = a.path
-                localStorage.path = this.num
-            }
-        },
-        created() {
-            if (localStorage.path != '') {
-                this.num = localStorage.path
-            }
-        },
-        // destroyed() {
-        //     window.onbeforeunload = function (e) {
-        //         var storage = window.localStorage;
-        //         storage.clear()
-        //     }
-        // },
         router
     })
 
 </script>
-
-</html>
-<script src="./js/_swiper@4.5.0@swiper/dist/js/swiper.min.js"></script>
+<!-- <script src="./js/_swiper@4.5.0@swiper/dist/js/swiper.min.js"></script>
 <script>
     var swiper = new Swiper('.swiper-container', {
         autoplay: true,
@@ -953,4 +933,104 @@
             clickable: true,
         }
     });
+</script> -->
+<script src="http://api.map.baidu.com/api?key=&v=1.1&services=true"></script>
+<script>
+    //创建和初始化地图函数：
+    function initMap() {
+        createMap();//创建地图
+        setMapEvent();//设置地图事件
+        addMapControl();//向地图添加控件
+        addMarker();//向地图中添加marker
+    }
+
+    //创建地图函数：
+    function createMap() {
+        var map = new BMap.Map("dituContent");//在百度地图容器中创建一个地图
+        var point = new BMap.Point(121.480812, 31.225436);//定义一个中心点坐标
+        map.centerAndZoom(point, 12);//设定地图的中心点和坐标并将地图显示在地图容器中
+        window.map = map;//将map变量存储在全局
+    }
+
+    //地图事件设置函数：
+    function setMapEvent() {
+        map.enableDragging();//启用地图拖拽事件，默认启用(可不写)
+        map.enableScrollWheelZoom();//启用地图滚轮放大缩小
+        map.enableDoubleClickZoom();//启用鼠标双击放大，默认启用(可不写)
+        map.enableKeyboard();//启用键盘上下左右键移动地图
+    }
+
+    //地图控件添加函数：
+    function addMapControl() {
+        //向地图中添加缩放控件
+        var ctrl_nav = new BMap.NavigationControl({ anchor: BMAP_ANCHOR_TOP_LEFT, type: BMAP_NAVIGATION_CONTROL_LARGE });
+        map.addControl(ctrl_nav);
+        //向地图中添加缩略图控件
+        var ctrl_ove = new BMap.OverviewMapControl({ anchor: BMAP_ANCHOR_BOTTOM_RIGHT, isOpen: 1 });
+        map.addControl(ctrl_ove);
+        //向地图中添加比例尺控件
+        var ctrl_sca = new BMap.ScaleControl({ anchor: BMAP_ANCHOR_BOTTOM_LEFT });
+        map.addControl(ctrl_sca);
+    }
+
+    //标注点数组
+    var markerArr = [{ title: "上海浦东嘉里酒店", content: "上海浦东花木路1388号", point: "121.483974|31.220989", isOpen: 1, icon: { w: 21, h: 21, l: 0, t: 0, x: 6, lb: 5 } }
+    ];
+    //创建marker
+    function addMarker() {
+        for (var i = 0; i < markerArr.length; i++) {
+            var json = markerArr[i];
+            var p0 = json.point.split("|")[0];
+            var p1 = json.point.split("|")[1];
+            var point = new BMap.Point(p0, p1);
+            var iconImg = createIcon(json.icon);
+            var marker = new BMap.Marker(point, { icon: iconImg });
+            var iw = createInfoWindow(i);
+            var label = new BMap.Label(json.title, { "offset": new BMap.Size(json.icon.lb - json.icon.x + 10, -20) });
+            marker.setLabel(label);
+            map.addOverlay(marker);
+            label.setStyle({
+                borderColor: "#808080",
+                color: "#333",
+                cursor: "pointer"
+            });
+
+            (function () {
+                var index = i;
+                var _iw = createInfoWindow(i);
+                var _marker = marker;
+                _marker.addEventListener("click", function () {
+                    this.openInfoWindow(_iw);
+                });
+                _iw.addEventListener("open", function () {
+                    _marker.getLabel().hide();
+                })
+                _iw.addEventListener("close", function () {
+                    _marker.getLabel().show();
+                })
+                label.addEventListener("click", function () {
+                    _marker.openInfoWindow(_iw);
+                })
+                if (!!json.isOpen) {
+                    label.hide();
+                    _marker.openInfoWindow(_iw);
+                }
+            })()
+        }
+    }
+    //创建InfoWindow
+    function createInfoWindow(i) {
+        var json = markerArr[i];
+        var iw = new BMap.InfoWindow("<b class='iw_poi_title' title='" + json.title + "'>" + json.title + "</b><div class='iw_poi_content'>" + json.content + "</div>");
+        return iw;
+    }
+    //创建一个Icon
+    function createIcon(json) {
+        var icon = new BMap.Icon("http://app.baidu.com/map/images/us_mk_icon.png", new BMap.Size(json.w, json.h), { imageOffset: new BMap.Size(-json.l, -json.t), infoWindowOffset: new BMap.Size(json.lb + 5, 1), offset: new BMap.Size(json.x, json.h) })
+        return icon;
+    }
+
+    initMap();//创建和初始化地图
 </script>
+
+</html>
