@@ -1,4 +1,4 @@
-# eleapp
+# elmapp
 
 ## Project setup
 ```
