@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel='stylesheet' href='https://at.alicdn.com/t/font_1317469_hdlfydtof.css'>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            text-decoration: none;
+        }
+
+        v-cloak {
+            display: none;
+        }
+
+        .nav {
+            float: left;
+            padding: 30px 80px;
+        }
+
+        .nav div {
+            float: left;
+            margin: 0 20px;
+            text-align: center;
+        }
+
+        .nav div a {
+            color: #efefef;
+        }
+
+        .nav div span {
+            display: block;
+            width: 0px;
+            height: 1px;
+            background: #ccc;
+            margin: 10px auto;
+        }
+
+        .nav div:hover span {
+            width: 100%;
+            background: #fff;
+            transition: 0.35s
+        }
+
+        /* no1背景 */
+        .no1bk {
+            width: 100%;
+            min-height: 663px;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: scroll;
+            background-position: 0 36%;
+            background: url('http://57e243aaa779a.t73.qifeiye.com/qfy-content/uploads/2016/10/f549634402d680ae8cccd5a6039000b5.jpg');
+        }
+
+        /* no2背景 */
+        .no2bk {
+            width: 100%;
+            min-height: 345px;
+            background-image: url('https://ccdn.goodq.top/caches/0aa02806352a2c565f61961c812e84a8/aHR0cHM6Ly81N2UyNDNhYWE3NzlhLnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTYvMTAvMDViZjRkNzAxMDU2NTNkNjI2ODQ2NmY4ZGY4NzFmM2YuanBn.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: scroll;
+            background-position: 0 36%;
+        }
+
+        .no3bk {
+            width: 100%;
+            min-height: 345px;
+            background-image: url('https://ccdn.goodq.top/caches/0aa02806352a2c565f61961c812e84a8/aHR0cHM6Ly81N2UyNDNhYWE3NzlhLnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTYvMTAvOTk4ZGE5MWY4MGZiNDg3NjU4MjI2MDQ1NzBhY2RmNDYuanBn.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: scroll;
+            background-position: 0 36%;
+        }
+
+        .no22bk {
+            background-image: url('https://ccdn.goodq.top/caches/0aa02806352a2c565f61961c812e84a8/aHR0cHM6Ly81N2UyNDNhYWE3NzlhLnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTYvMDkvZGMyODkyNzE4YWUxZTY2NDFmNTlkNmU2YjRjN2JhNmIuanBn.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: scroll;
+            background-position: 0 23%;
+        }
+
+
+        a:link,
+        .active a:visited {
+            color: #000;
+        }
+
+        .active a:link,
+        .active a:visited {
+            color: #fff;
+        }
+
+        .ow {
+            overflow: hidden;
+            height: 52px;
+        }
+
+        .ft-leave,
+        .ft-leave-to {
+            opacity: 1;
+            left: 1px !important;
+        }
+
+        .ft-leave-active,
+        .ft-enter-active {
+            transition: 1s;
+        }
+
+        .ft-leave-to {
+            opacity: 0;
+        }
+
+        .ft-enter {
+            opacity: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box" v-cloak=''>
+        <div style="min-height:93px;padding:0 50px;top:0;left:0;position: relative;z-index: 9;">
+            <div style="float: left;padding:30px 0;">
+                <img style="width:131px;height:29px;"
+                    src="https://ccdn.goodq.top/caches/0aa02806352a2c565f61961c812e84a8/aHR0cHM6Ly81N2UyNDNhYWE3NzlhLnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTYvMTAvMmE4YWZmM2RkZmJkYWU5YmFjMjhmOTczNGUzOTE1NWMucG5n.png">
+            </div>
+            <div class=" nav">
+                <div style="width:40px;"><a href="#/">首页</a><span></span></div>
+                <div style="width:70px;"><a href="#/no2">产品发布</a><span></span></div>
+                <div style="width:70px;"><a href="#/no3">资讯发布</a><span></span></div>
+            </div>
+        </div>
+        <div style="position: relative; top:-93px;">
+            <router-view></router-view>
+        </div>
+    </div>
+    </div>
+    <!-- 首页 -->
+    <template id="no1">
+        <div>
+            <div class="no1bk">
+                <div style='background-color: rgba(28,28,28,0.7); min-height: 663px;'>
+                    <div style="width:934px;min-height:254px;margin:0 auto;padding-top:300px;z-index: 1;">
+                        <div name='ft'>
+                            <transition>
+                                <div v-for='(item,$index) in fft' v-if="num==$index" style='text-align: center;'>
+                                    <p style="font-size:38px;color:#fff;margin-top:10px;">{{item.f1}}</p>
+                                    <p style="font-size:20px;color:#fff;margin-top:10px;"> {{item.f2}}</p>
+                                </div>
+                            </transition>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+    <!-- 产品发布 -->
+    <template id="no2">
+        <div>
+            <div class="no2bk">
+                <div style='background-color: rgba(28,28,28,0.7); min-height: 345px;'></div>
+            </div>
+            <div style="min-height:673px;width:1024;margin:0 auto;text-align: center;padding-top:60px;" class="no22bk">
+                <div>
+                    <div style="font-size:34px;color:#393939;">产品发布</div>
+                    <div style="max-width:50px;height:2px;background-color:#54d7e0;margin: 10px auto"></div>
+                    <div style="font-size:14px;color:#696969;padding:4px 0 29px;">応捠捡换攴朰朸妀夲夳夵壱，売圢圤圥圦圧圪咐咑厺厼厽帄帇</div>
+                </div>
+                <div style="height: 500px;width:766px;margin:0 auto;">
+                    <img
+                        src="https://ccdn.goodq.top/caches/0aa02806352a2c565f61961c812e84a8/aHR0cHM6Ly81N2UyNDNhYWE3NzlhLnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTYvMDkvNGQxZGJmMGU0MTg5YWUxYWU1ZjNmZDkyZjc3OWRhMGItNzY2eDUwMC5wbmc_p_p100_p_3D.png">
+                </div>
+            </div>
+        </div>
+    </template>
+    <!-- 资讯发布 -->
+    <template id="no3">
+        <div>
+            <div class="no3bk">
+                <div style="background-color: rgba(28,28,28,0.7); min-height: 345px;">
+                </div>
+            </div>
+            <div>
+                <router-view></router-view>
+            </div>
+        </div>
+    </template>
+
+    <template id="no3-1">
+        <div>
+            <div style="padding:30px 200px;">
+                <button @click='$router.go(-1)'>返回</button>
+                <h5 style="color:#000;font-size:28px;">三大能源停征价格调节基金为煤炭资源税改革清路</h5>
+                <p style="color:#000;font-size:14px;line-height:69px;">发布日期：2017-03-14 17:23</p>
+                <div><img style="width:300px;height:200px;"
+                        src="https://ccdn.goodq.top/caches/0aa02806352a2c565f61961c812e84a8/aHR0cHM6Ly81N2UyNDNhYWE3NzlhLnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTYvMTAvMDViZjRkNzAxMDU2NTNkNjI2ODQ2NmY4ZGY4NzFmM2YtMzAweDIwMC5qcGc_p_p100_p_3D.jpg">
+                </div>
+                <div style="color:#595959;font-size:14px;line-height:24px;padding-top:20px;">
+                    起飞页推崇用户自己创建网站并享受建站所带来的乐趣，因此我们为您准备了一套安全、稳定、不揪心的自助建站系统：在这里，您只需打字传图、用鼠标自由拖拽，便可在弹指间做出极具专业级别的网站。我们以全球首创的网页线性布局方案和傻瓜式图文编辑为核心，研发出这种颠覆传统的响应式网站制作方式，可以为您节约90%的建站时间。
+                </div>
+                <div style="color:#595959;font-size:14px;line-height:24px;padding-top:20px;">
+                    起飞页推崇用户自己创建网站并享受建站所带来的乐趣，因此我们为您准备了一套安全、稳定、不揪心的自助建站系统：在这里，您只需打字传图、用鼠标自由拖拽，便可在弹指间做出极具专业级别的网站。我们以全球首创的网页线性布局方案和傻瓜式图文编辑为核心，研发出这种颠覆传统的响应式网站制作方式，可以为您节约90%的建站时间。
+                </div>
+                <div style="color:#595959;font-size:14px;line-height:24px;padding-top:20px;">
+                    起飞页推崇用户自己创建网站并享受建站所带来的乐趣，因此我们为您准备了一套安全、稳定、不揪心的自助建站系统：在这里，您只需打字传图、用鼠标自由拖拽，便可在弹指间做出极具专业级别的网站。我们以全球首创的网页线性布局方案和傻瓜式图文编辑为核心，研发出这种颠覆传统的响应式网站制作方式，可以为您节约90%的建站时间。
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <template id="no33">
+        <div>
+            <div style="width:1024px;min-height:1174px;margin:20px auto;">
+                <div style="margin-right:40px;width:156px;height:176px; float: left;">
+                    <div style="line-height: 45px;" v-for="(i,$index) in arr" @click="index=$index">
+                        <div style="padding-left:40px;"><i style="font-size:20px;color:#999;"
+                                class="iconfont icon-icon-up"></i>{{i.title}}</div>
+                    </div>
+                </div>
+                <div style="float:left;width:700px;">
+                    <div>
+                        <div style="font-size:20px;font-weight:bold;color:#000000;">
+                            资讯发布</div>
+                    </div>
+                    <div v-for="(i,$index) in arr" v-show="$index==index">
+                        <div v-for="i in i.content" style="display: flex; padding: 10px;">
+                            <div style="width:180px; padding-right:15px;">
+                                <img :src="i.img">
+                            </div>
+                            <div style="flex: 1;">
+                                <div>
+                                    <a :href="'#/no3/no3-1/'+i.title">
+                                        <p style="color:#666666;font-size:16px;">
+                                            {{i.title}}
+                                        </p>
+                                    </a>
+                                </div>
+                                <p style="padding:6px 0;color:#4cd7de;font-size:11px;line-height:11px;">
+                                    {{i.time}}</p>
+                                <p style="color:#9e9e9e;font-size:12px;line-height:20px;">{{i.content}}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+</body>
+<script src="./js/vue.js"></script>
+<script src="./js/vue-router.js"></script>
+<script>
+
+    var router = new VueRouter({
+        routes: [
+            {
+                path: '/', component: {
+                    template: '#no1',
+                    mounted() {
+                        setInterval(() => {
+                            this.btn()
+                        }, 2000)
+                    },
+                    methods: {
+                        btn() {
+                            if (this.type) {
+                                this.num++
+                                if (this.num >= this.fft.length) {
+                                    this.num = 0
+                                }
+                                this.type = false
+                                setTimeout(() => {
+                                    this.type = true
+                                }, 2000)
+                            }
+                        }
+                    },
+                    data() {
+                        return {
+                            num: 0,
+                            type: true,
+                            fft: [
+                                {
+                                    f1: "我们无法做到完美, 但追求完美能让人卓越",
+                                    f2: 'Perfection’snot attainable but if we chase it we can catch excellence.'
+                                },
+                                {
+                                    f1: "平台三大优势",
+                                    f2: 'but if we chase it we can catch excellence.'
+                                },
+                                {
+                                    f1: "功能多样，满足您的所有需求",
+                                    f2: 'but if we chase it we can catch excellence.'
+                                }
+                            ],
+                        }
+                    }
+                }
+            },
+            {
+                path: '/no2', component: {
+                    template: '#no2'
+                }
+            },
+            {
+                path: '/no3', component: {
+                    template: '#no3',
+
+
+                },
+                children: [
+                    {
+                        path: '/',
+                        component: {
+                            template: '#no33',
+                            data() {
+                                return {
+                                    index: 0,
+                                    arr: [{
+                                        title: '全部发布',
+                                        content: [{
+                                            img: 'https://ccdn.goodq.top/caches/0aa02806352a2c565f61961c812e84a8/aHR0cHM6Ly81N2UyNDNhYWE3NzlhLnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTYvMTAvMDViZjRkNzAxMDU2NTNkNjI2ODQ2NmY4ZGY4NzFmM2YtMTgweDEyMC5qcGc_p_p100_p_3D.jpg',
+                                            content: '起飞页的工作团队是一群热爱互联网及软件事业的大伙伴和小伙伴，经验丰富、成熟稳定，基于对网站出版行业的热爱、对人人都能做出精美网站的向往，公司投入一千万元人民币，历时两年时间打造出起飞页平台。截至2015年底，在起飞页上创建的网站已超过10万+。',
+                                            title: '三大能源停征价格调节基金为煤炭资源税改革清路',
+                                            time: '发布日期：2017-03-14'
+                                        },
+                                        {
+                                            img: 'https://ccdn.goodq.top/caches/0aa02806352a2c565f61961c812e84a8/aHR0cHM6Ly81N2UyNDNhYWE3NzlhLnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTYvMTAvOWVmMDY3ODQ0ZDIzZmFiZDA2Y2NkNjVkZGY2MWQyZDgtMTgweDEyMC5qcGc_p_p100_p_3D.jpg',
+                                            content: '起飞页的工作团队是一群热爱互联网及软件事业的大伙伴和小伙伴，经验丰富、成熟稳定，基于对网站出版行业的热爱、对人人都能做出精美网站的向往，公司投入一千万元人民币，历时两年时间打造出起飞页平台。截至2015年底，在起飞页上创建的网站已超过10万+。',
+                                            title: '三大能源停征价格调节基金为煤炭资源税改革清路',
+                                            time: '发布日期：2017-03-14'
+                                        },
+                                        ]
+                                    }, {
+                                        title: '公司新闻',
+                                        content: [{
+                                            img: 'https://ccdn.goodq.top/caches/0aa02806352a2c565f61961c812e84a8/aHR0cHM6Ly81N2UyNDNhYWE3NzlhLnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTYvMTAvOWVmMDY3ODQ0ZDIzZmFiZDA2Y2NkNjVkZGY2MWQyZDgtMTgweDEyMC5qcGc_p_p100_p_3D.jpg',
+                                            content: '起飞页的工作团队是一群热爱互联网及软件事业的大伙伴和小伙伴，经验丰富、成熟稳定，基于对网站出版行业的热爱、对人人都能做出精美网站的向往，公司投入一千万元人民币，历时两年时间打造出起飞页平台。截至2015年底，在起飞页上创建的网站已超过10万+。',
+                                            title: '三大能源停征价格调节基金为煤炭资源税改革清路',
+                                            time: '发布日期：2017-03-14'
+                                        },
+                                        {
+                                            img: 'https://ccdn.goodq.top/caches/0aa02806352a2c565f61961c812e84a8/aHR0cHM6Ly81N2UyNDNhYWE3NzlhLnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTYvMTAvOWFjMDViN2VmMzVkYmVhOGU5ZTI2MDQ2OGY4M2E1MjEtMTgweDEyMC5qcGc_p_p100_p_3D.jpg',
+                                            content: '起飞页的工作团队是一群热爱互联网及软件事业的大伙伴和小伙伴，经验丰富、成熟稳定，基于对网站出版行业的热爱、对人人都能做出精美网站的向往，公司投入一千万元人民币，历时两年时间打造出起飞页平台。截至2015年底，在起飞页上创建的网站已超过10万+。',
+                                            title: '三大能源停征价格调节基金为煤炭资源税改革清路',
+                                            time: '发布日期：2017-03-14'
+                                        },
+                                        ]
+                                    }, {
+                                        title: '行业资讯',
+                                        content: [{
+                                            img: 'https://ccdn.goodq.top/caches/0aa02806352a2c565f61961c812e84a8/aHR0cHM6Ly81N2UyNDNhYWE3NzlhLnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTYvMTAvMDViZjRkNzAxMDU2NTNkNjI2ODQ2NmY4ZGY4NzFmM2YtMTgweDEyMC5qcGc_p_p100_p_3D.jpg',
+                                            content: '起飞页的工作团队是一群热爱互联网及软件事业的大伙伴和小伙伴，经验丰富、成熟稳定，基于对网站出版行业的热爱、对人人都能做出精美网站的向往，公司投入一千万元人民币，历时两年时间打造出起飞页平台。截至2015年底，在起飞页上创建的网站已超过10万+。',
+                                            title: '三大能源停征价格调节基金为煤炭资源税改革清路',
+                                            time: '发布日期：2017-03-14'
+                                        },
+                                        {
+                                            img: 'https://ccdn.goodq.top/caches/0aa02806352a2c565f61961c812e84a8/aHR0cHM6Ly81N2UyNDNhYWE3NzlhLnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTYvMTAvMDViZjRkNzAxMDU2NTNkNjI2ODQ2NmY4ZGY4NzFmM2YtMTgweDEyMC5qcGc_p_p100_p_3D.jpg',
+                                            content: '起飞页的工作团队是一群热爱互联网及软件事业的大伙伴和小伙伴，经验丰富、成熟稳定，基于对网站出版行业的热爱、对人人都能做出精美网站的向往，公司投入一千万元人民币，历时两年时间打造出起飞页平台。截至2015年底，在起飞页上创建的网站已超过10万+。',
+                                            title: '三大能源停征价格调节基金为煤炭资源税改革清路',
+                                            time: '发布日期：2017-03-14'
+                                        },
+                                        ]
+                                    }]
+                                }
+                            },
+                        }
+                    }, {
+                        path: 'no3-1/:tt',
+                        component: {
+                            template: '#no3-1'
+                        }
+                    }
+                ],
+            }
+        ]
+    })
+
+    new Vue({
+        el: '#box',
+        router,
+
+    })
+</script>
+
+</html>
