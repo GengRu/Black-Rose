@@ -58,5 +58,6 @@
     white-space: normal;
     overflow: hidden;
     text-overflow:ellipsis; 
+    text-align: center;
   }
 </style>
