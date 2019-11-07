@@ -1,5 +1,17 @@
 <template>
   <div id="el-city">
+	<el_Header>
+	  <div slot="elw-Left">
+		<router-link to="/" class="el-icon-arrow-left"></router-link>
+	  </div>
+	  <div slot="elw-cont">
+		  888
+	  </div>
+	  <div slot="elw-right">
+		 <router-link to="/">切换城市</router-link>
+	  </div>
+	</el_Header>
+		
 	<!-- 头部搜索 -->
     <div class="elr-search">
 		<input type="text" placeholder="输入学校、商务楼、地址" class="elr-search-ipt" v-model="value">
@@ -7,28 +19,28 @@
 	</div>
 	
 	<!-- 搜索历史 -->
-	<div v-show="dataArr == ''">
+	<div v-show="!dataArr">
 		<div class="elr-search-ls">搜索历史</div>
 		<div v-for="(i,$idx) in listArr" :key='$idx' class="elr-search-jg">
 			<div class="elr-search-tt">{{i.a}}</div>
 			<div class="elr-search-ct">{{i.b}}</div>
 		</div>
-		<div class="elr-search-removeBtn" @click="r">清空所有</div>
+		<div class="elr-search-removeBtn" v-show="listArr.length != 0" @click="r">清空所有</div>
 	</div>
 	
 	
 	<!-- 搜索结果 -->
-	<div v-show="dataArr != ''">
-		<div v-for="(i,$idx) in dataArr" :key='$idx' class="elr-search-jg" @click="entBtn(i.name,i.address)">
-			<div class="elr-search-tt">{{i.name}}</div>
-			<div class="elr-search-ct">{{i.address}}</div>
-		</div>
+	<div v-for="(i,$idx) in dataArr" :key='$idx' class="elr-search-jg" @click="entBtn(i.name,i.address)">
+		<div class="elr-search-tt">{{i.name}}</div>
+		<div class="elr-search-ct">{{i.address}}</div>
 	</div>
   </div>
 </template>
 
 <script>
+	import el_Header from '../components/el-header/el-header';
 	export default {
+		components:{el_Header},
 		data(){
 			return{
 				dataArr:'',
@@ -78,6 +90,7 @@
 <style scoped>
 	#el-city{
 		background-color: #f5f7f6;
+		padding-top: 180px;
 	}
 	
 	/* 搜索 */
@@ -85,6 +98,7 @@
 		background-color: #fff;
 		padding: 28px 55px;
 		font-size: 40px;
+		border-top: 7px solid #e3e3e5;
 		border-bottom: 7px solid #e3e3e5;
 	}
 	
