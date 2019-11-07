@@ -1,5 +1,6 @@
 <template>
   <div id="home">
+<<<<<<< HEAD
     <div class="elj-position">
         <div class="elj-current">
           <span class="elj-l">当前定位城市:</span>
@@ -33,12 +34,24 @@
           </div>
        </div>
     </div>
+=======
+     <el_Header>
+       <div slot="elw-Left">
+         <router-link to="./"> eleme</router-link>
+       </div>
+       <div slot="elw-right">
+          <router-link to="./login">登陆 | 注册</router-link>
+       </div>
+     </el_Header>
+>>>>>>> db5a1faad7bc0fe257ed5861833a2d725edcf783
   </div>
 </template>
 
 <script>
+import el_Header from '../components/el-header/el-header';
 export default {
   name: "home",
+<<<<<<< HEAD
   data(){
     return{
       current_arr:'',
@@ -68,6 +81,9 @@ export default {
       console.log(this.arr_arr)
     })
   }
+=======
+  components:{el_Header}
+>>>>>>> db5a1faad7bc0fe257ed5861833a2d725edcf783
 };
 </script>
 <style scoped>
