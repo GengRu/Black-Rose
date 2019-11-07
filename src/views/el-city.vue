@@ -5,7 +5,7 @@
 		<router-link to="/" class="el-icon-arrow-left"></router-link>
 	  </div>
 	  <div slot="elw-cont">
-		  888
+		 {{$route.params.names}}
 	  </div>
 	  <div slot="elw-right">
 		 <router-link to="/">切换城市</router-link>
@@ -52,7 +52,7 @@
 			// 搜索按钮
 			schBtn(){
 				if(this.value != ''){
-					this.axios.get('http://elm.cangdu.org/v1/pois?type=search&city_id=5&keyword='+this.value).then(data=>{
+					this.axios.get('http://elm.cangdu.org/v1/pois?type=search&city_id='+this.$route.params.id+'&keyword='+this.value).then(data=>{
 						this.dataArr = data.data
 					})
 				}
