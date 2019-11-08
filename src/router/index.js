@@ -3,7 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 const city = () => import('../views/el-city.vue')
 const login = () => import('../views/el-login.vue')
-
+const msite=()=>import('../views/el-msite')
 Vue.use(VueRouter)
 
 const routes = [
@@ -25,7 +25,13 @@ const routes = [
     path: '/login',
     name: 'login',
     component: login
+  },
+  {
+    path: '/msite',
+    name: 'msite',
+    component: msite
   }
+
 ]
 
 const router = new VueRouter({
