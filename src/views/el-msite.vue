@@ -1,18 +1,50 @@
 <template>
-    <div>
-         <el_Header></el_Header>
-    </div>
+  <div id="msite">
+    <el_Header></el_Header>
+    <el_hotList v-for="(i,$index) in list_arr" :key="$index">
+      <div slot="el-conImg">
+        <img :src="'http://elm.cangdu.org/img/'+i.image_path" alt />
+      </div>
+      <div slot="el-conName">{{i.name}}</div>
+      <div slot="el-stater">
+        <el-rate v-model="i.rating" disabled show-score text-color="#ff9900" score-template="{value}" disabled-void-color="#666"></el-rate>
+      </div>
+      <div slot="el-numBer">
+          月售106单
+      </div>
+      <div slot="el-conRots">¥20起送/{{i.piecewise_agent_fee.tips}}</div>
+       <div slot="el-conWz">{{i.distance}}/</div>
+       <div slot="el-conTime">{{i.order_lead_time}}</div>
+    </el_hotList>
+  </div>
 </template>
 
 <script>
-import el_Header from './../components/el-header/el-header'
+import el_Header from "./../components/el-header/el-header";
+import el_hotList from "./../components/el-hotList/el-hotList";
 export default {
-    components:{el_Header}
-}
+  components: { el_Header, el_hotList },
+  data(){
+      return{
+          value:3.4,
+          list_arr:'',
+      }
+  },
+  created(){
+      this.axios.get('http://elm.cangdu.org/shopping/restaurants?latitude=39.0475&longitude=117.42993&offset=0&limit=20&extras[]=activities&keyword=&restaurant_category_id=&restaurant_category_ids[]=&order_by=&delivery_mode[]=').then(res => {
+      this.list_arr=res.data
+      console.log(this.list_arr)
+    })
+    this.$emit('rating')
+  }
+};
 </script>
 
 <style>
-    .el-icon-arrow-left{
-        font-size: 42px;
-    }
+#msite{
+    padding-top:130px; 
+}
+.el-icon-arrow-left {
+  font-size: 42px;
+}
 </style>

@@ -20,15 +20,16 @@
 export default {};
 </script>
 
-<style>
+<style scoped>
+
 .elw-Pos {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-<<<<<<< HEAD
   color: #fff;
   font-size: 48px;
+  z-index: 10;
 }
 .elw-continer {
   width: 100%;
@@ -60,38 +61,3 @@ export default {};
   text-align: center;
 }
 </style>
-=======
-   color: #fff;
-   font-size: 48px;
-}
-  .elw-continer{
-    width: 100%;
-    line-height: 136px;
-    background:#3190e8;
-    height: 136px;
-  }
-  .elw-confeak{
-    width: 90%;
-    margin: 0 auto;
-    display: flex;
-  }
-  .elw-conitem{
-    flex: 1;
-  }
-  .elw-rter{
-    text-align: right;
-  }
-  .elw-rter a{
-    color: #fff;
-  }
-  .elw-conitem a{
-     color: #fff;
-  }
-  .elw-conter{
-    white-space: normal;
-    overflow: hidden;
-    text-overflow:ellipsis; 
-    text-align: center;
-  }
-</style>
->>>>>>> 7a9c3c64fd5c34c8287f725fd478858e78d6f9da
