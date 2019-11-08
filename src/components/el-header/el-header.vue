@@ -6,7 +6,7 @@
           <slot name="elw-Left"></slot>
         </div>
         <div class="elw-conitem elw-conter">
-          <slot name="elw-cont"></slot>
+          <div class="elw-context"><slot name="elw-cont"></slot></div>
         </div>
         <div class="elw-conitem elw-rter">
           <slot name="elw-right"></slot>
@@ -20,7 +20,8 @@
 export default {};
 </script>
 
-<style>
+<style scoped>
+
 .elw-Pos {
   position: fixed;
   top: 0;
@@ -28,6 +29,7 @@ export default {};
   width: 100%;
   color: #fff;
   font-size: 48px;
+  z-index: 10;
 }
 .elw-continer {
   width: 100%;
@@ -53,9 +55,12 @@ export default {};
   color: #fff;
 }
 .elw-conter {
-  white-space: normal;
-  overflow: hidden;
-  text-overflow: ellipsis;
   text-align: center;
+}
+.elw-context{
+ white-space: nowrap;
+ overflow: hidden;
+ text-overflow: ellipsis;
+ width:100%;
 }
 </style>
