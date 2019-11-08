@@ -62,13 +62,13 @@ export default {};
 }
 .elw-content {
   float: left;
-  width: 84%;
+  width:77%;
 }
 .elw-conNent{
     width: 100%;
 }
 .elw-conImg {
-  width: 178px;
+  width: 20%;
   height: 178px;
   padding: 16px 0;
   margin-right: 24px;

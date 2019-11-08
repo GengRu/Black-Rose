@@ -66,14 +66,14 @@ export default {
   height: 96px;
   line-height: 96px;
   margin-bottom: 20px;
-  font-size:44px;
+  font-size: 44px;
   width: 100%;
   color: #999;
 }
-.elw-sTitle span{
-    padding: 0 10px;
+.elw-sTitle span {
+  padding: 0 10px;
 }
-.elw-sTitle div{
-    padding: 20px;
+.elw-sTitle div {
+  padding: 20px;
 }
 </style>

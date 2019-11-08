@@ -1,4 +1,5 @@
 import Vue from "vue";
+import 'lib-flexible/flexible'
 import axios from "axios";
 import VueAxios from "vue-axios";
 import ElementUI from "element-ui";
