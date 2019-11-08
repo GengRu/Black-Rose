@@ -16,6 +16,7 @@ export default {
     };
   },
   methods: {
+    // 抛出事件点击确认关闭弹窗
     btn_sure() {
       this.$emit("closeSure", this.flag);
     }

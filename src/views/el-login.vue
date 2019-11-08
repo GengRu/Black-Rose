@@ -26,7 +26,7 @@
         </div>
       </div>
       <!--验证码-->
-      <el_yan @getCode="captcha_code"></el_yan>
+      <el_yan @getCode="captcha_code" ref="changeYzm"></el_yan>
     </div>
     <p class="elt-loginelt-Tips">温馨提示：未注册过的账号，登录时将自动注册</p>
     <p class="elt-loginelt-Tips">注册过的用户可凭账号密码登录</p>
@@ -34,6 +34,7 @@
     <router-link to="/forget">
       <div class="elt-to-forget">重置密码？</div>
     </router-link>
+    <!--弹窗-->
     <el_alert v-show="!showHide" @closeSure="close">
       <span slot="tipInfo">{{ tipInfo }}</span>
     </el_alert>
@@ -41,6 +42,7 @@
 </template>
 
 <script>
+// 引入头部、witch按钮、验证码、弹窗
 import el_Header from "../components/el-header/el-header";
 import el_switch from "../components/el-login/el-switch";
 import el_yan from "../components/el-login/el-yanzhengma";
@@ -82,6 +84,7 @@ export default {
         this.showHide = false;
         this.tipInfo = "请输入验证码";
       } else {
+        // 登录
         this.axios
           .post("http://elm.cangdu.org/v2/login", {
             password: this.password,
@@ -89,13 +92,16 @@ export default {
             captcha_code: this.code
           })
           .then(data => {
-            console.log(data.data);
+            // console.log(data.data);
+            // 判断是否登录成功，成功则进入“我的”页面
             if (!data.data.message) {
               this.showHide = false;
               this.tipInfo = "登录成功";
             } else {
               this.showHide = false;
               this.tipInfo = data.data.message;
+              this.$refs.changeYzm.changeNum();
+              // console.log(this.$refs);
             }
           });
       }

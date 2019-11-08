@@ -5,9 +5,7 @@
       <div slot="elw-Left">
         <router-link to="./" class="el-icon-arrow-left"></router-link>
       </div>
-      <div slot="elw-cont">
-        重置密码
-      </div>
+      <div slot="elw-cont">重置密码</div>
     </el_Header>
 
     <!--修改密码-->
@@ -33,10 +31,12 @@
         </div>
       </el_input>
       <div class="elt-user-pass">
-        <el_yan @getCode="captcha_code"></el_yan>
+        <!--验证码-->
+        <el_yan @getCode="captcha_code" ref="changeYzm"></el_yan>
       </div>
     </div>
     <div class="elt-login" @click="btnLogin">确认修改</div>
+    <!--弹窗-->
     <el_alert v-show="!showHide" @closeSure="close">
       <span slot="tipInfo">{{ tipInfo }}</span>
     </el_alert>
@@ -88,7 +88,7 @@ export default {
         this.tipInfo = "请输入验证码";
       } else {
         this.axios
-          .post("https://elm.cangdu.org/v2/changepassword", {
+          .post("http://elm.cangdu.org/v2/changepassword", {
             username: this.username,
             oldpassWord: this.oldpass,
             newpassword: this.newpass,
@@ -96,10 +96,14 @@ export default {
             captcha_code: this.code
           })
           .then(data => {
-            console.log(data.data);
+            // console.log(data.data);
             this.showHide = false;
             if (data.data.status == 1) {
               this.tipInfo = data.data.success;
+            } else {
+              this.showHide = false;
+              this.tipInfo = data.data.message;
+              this.$refs.changeYzm.changeNum();
             }
           });
       }

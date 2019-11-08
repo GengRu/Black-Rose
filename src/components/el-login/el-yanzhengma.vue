@@ -28,12 +28,14 @@ export default {
   watch: {
     code(a) {
       if (a) {
+        // 抛出验证码
         this.$emit("getCode", this.code);
       }
     }
   },
   methods: {
     changeNum() {
+      // 获取验证码
       this.axios.post("http://elm.cangdu.org/v1/captchas").then(data => {
         this.imgurl = data.data.code;
       });
