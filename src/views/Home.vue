@@ -46,7 +46,11 @@
 </template>
 
 <script>
+<<<<<<< HEAD
 import el_Header from './../components/el-header/el-header'
+=======
+	import el_Header from "../components/el-header/el-header";
+>>>>>>> ef47fec5a3c57221b1f02ea6fc7a8b323f14df8e
 export default {
   name: "home",
   components:{el_Header},
