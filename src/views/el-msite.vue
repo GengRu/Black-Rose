@@ -8,9 +8,10 @@
 			   <router-link to="/">{{$route.params.mName}}</router-link>
            </div>
            <div slot="elw-right">
-         	 <router-link to="./login">登陆 | 注册</router-link>
+         	 <router-link to="/login">登陆 | 注册</router-link>
            </div>
          </el_Header>
+		 <el_Footer></el_Footer>
 			 
 		 <lunbo></lunbo>
     <div class="elw-sTitle">
@@ -46,8 +47,9 @@
 import el_Header from "./../components/el-header/el-header";
 import lunbo from './../components/el-lunbo/el-lunbotu'
 import el_hotList from "./../components/el-hotList/el-hotList";
+import el_Footer from '../components/el-footer/el-footer'
 export default {
-  components: { el_Header, el_hotList, lunbo},
+  components: { el_Header, el_hotList, el_Footer, lunbo},
   data() {
     return {
       value: 3.4,
@@ -70,7 +72,7 @@ export default {
 
 <style>
 #msite {
-  padding-top: 130px;
+  padding: 130px 0;
 }
 .el-icon-arrow-left {
   font-size: 42px;
