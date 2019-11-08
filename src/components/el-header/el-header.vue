@@ -20,7 +20,8 @@
 export default {};
 </script>
 
-<style>
+<style scoped>
+
 .elw-Pos {
   position: fixed;
   top: 0;
@@ -28,6 +29,7 @@ export default {};
   width: 100%;
   color: #fff;
   font-size: 48px;
+  z-index: 10;
 }
 .elw-continer {
   width: 100%;
@@ -56,9 +58,9 @@ export default {};
   text-align: center;
 }
 .elw-context{
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	width:100%;
+ white-space: nowrap;
+ overflow: hidden;
+ text-overflow: ellipsis;
+ width:100%;
 }
 </style>

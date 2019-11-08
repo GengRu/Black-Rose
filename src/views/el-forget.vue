@@ -5,9 +5,7 @@
       <div slot="elw-Left">
         <router-link to="./" class="el-icon-arrow-left"></router-link>
       </div>
-      <div slot="elw-cont">
-        重置密码
-      </div>
+      <div slot="elw-cont">重置密码</div>
     </el_Header>
     <div style="margin-top: 50px;">
       <el_input>

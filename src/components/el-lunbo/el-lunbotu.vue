@@ -41,7 +41,7 @@
 		width: 100%;
 		height: 580px;
 		background-color: #FFFFFF;
-		padding-top: 40p0;
+		padding-top: 40px;
 	}
 
 	.elr-lunbo-box {
