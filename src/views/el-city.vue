@@ -22,8 +22,10 @@
 	<div v-show="!dataArr">
 		<div class="elr-search-ls">搜索历史</div>
 		<div v-for="(i,$idx) in listArr" :key='$idx' class="elr-search-jg">
-			<div class="elr-search-tt">{{i.a}}</div>
-			<div class="elr-search-ct">{{i.b}}</div>
+			<router-link :to="'/msite/'+i.a">
+				<div class="elr-search-tt">{{i.a}}</div>
+				<div class="elr-search-ct">{{i.b}}</div>
+			</router-link>
 		</div>
 		<div class="elr-search-removeBtn" v-show="listArr.length != 0" @click="r">清空所有</div>
 	</div>
@@ -31,8 +33,10 @@
 	
 	<!-- 搜索结果 -->
 	<div v-for="(i,$idx) in dataArr" :key='$idx' class="elr-search-jg" @click="entBtn(i.name,i.address)">
-		<div class="elr-search-tt">{{i.name}}</div>
-		<div class="elr-search-ct">{{i.address}}</div>
+		<router-link :to="'/msite/'+i.name">
+			<div class="elr-search-tt">{{i.name}}</div>
+			<div class="elr-search-ct">{{i.address}}</div>
+		</router-link>
 	</div>
   </div>
 </template>
@@ -145,6 +149,7 @@
 	.elr-search-tt{
 		padding: 28px 0;
 		font-weight: bold;
+		color: #000000;
 	}
 	
 	/* 搜索结果内容 */
