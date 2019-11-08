@@ -9,6 +9,8 @@
         重置密码
       </div>
     </el_Header>
+
+    <!--修改密码-->
     <div style="margin-top: 50px;">
       <el_input>
         <div slot="elt-input">
@@ -31,10 +33,13 @@
         </div>
       </el_input>
       <div class="elt-user-pass">
-        <el_yan></el_yan>
+        <el_yan @getCode="captcha_code"></el_yan>
       </div>
     </div>
     <div class="elt-login" @click="btnLogin">确认修改</div>
+    <el_alert v-show="!showHide" @closeSure="close">
+      <span slot="tipInfo">{{ tipInfo }}</span>
+    </el_alert>
   </div>
 </template>
 
@@ -42,22 +47,70 @@
 import el_Header from "../components/el-header/el-header";
 import el_yan from "../components/el-login/el-yanzhengma";
 import el_input from "../components/el-login/el-input";
+import el_alert from "../components/el-login/el-alert";
 export default {
   components: {
     el_Header,
     el_yan,
-    el_input
+    el_input,
+    el_alert
   },
   data() {
     return {
+      showHide: true,
       username: "",
       oldpass: "",
       newpass: "",
-      newpass2: ""
+      newpass2: "",
+      code: "",
+      tipInfo: ""
     };
   },
   methods: {
-    btnLogin() {}
+    btnLogin() {
+      if (this.username == "") {
+        this.showHide = false;
+        this.tipInfo = "请输入正确的账号";
+      } else if (this.oldpass == "") {
+        this.showHide = false;
+        this.tipInfo = "请输入旧密码";
+      } else if (this.newpass == "") {
+        this.showHide = false;
+        this.tipInfo = "请输入新密码";
+      } else if (this.newpass2 == "") {
+        this.showHide = false;
+        this.tipInfo = "请确认密码";
+      } else if (this.newpass2 != this.newpass) {
+        this.showHide = false;
+        this.tipInfo = "两次输入的密码不一样";
+      } else if (this.code == "") {
+        this.showHide = false;
+        this.tipInfo = "请输入验证码";
+      } else {
+        this.axios
+          .post("https://elm.cangdu.org/v2/changepassword", {
+            username: this.username,
+            oldpassWord: this.oldpass,
+            newpassword: this.newpass,
+            confirmpassword: this.newpass2,
+            captcha_code: this.code
+          })
+          .then(data => {
+            console.log(data.data);
+            this.showHide = false;
+            if (data.data.status == 1) {
+              this.tipInfo = data.data.success;
+            }
+          });
+      }
+    },
+    // 接收关闭弹窗
+    close(a) {
+      this.showHide = true;
+    },
+    captcha_code(a) {
+      this.code = a;
+    }
   }
 };
 </script>

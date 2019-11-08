@@ -4,13 +4,14 @@
       <div class="elt-yan-l">
         <input type="text" placeholder="验证码" maxlength="4" v-model="code" />
       </div>
-      <div class="elt-yan-r"></div>
-      <div class="elt-value">
-        <img :src="imgurl" alt="" />
-      </div>
-      <div @click="changeNum" class="elt-changeyan">
-        <div>看不清</div>
-        <div>换一张</div>
+      <div class="elt-yan-r">
+        <div class="elt-value">
+          <img :src="imgurl" alt="" />
+        </div>
+        <div @click="changeNum" class="elt-changeyan">
+          <div>看不清</div>
+          <div>换一张</div>
+        </div>
       </div>
     </div>
   </div>
@@ -23,6 +24,13 @@ export default {
       imgurl: "",
       code: ""
     };
+  },
+  watch: {
+    code(a) {
+      if (a) {
+        this.$emit("getCode", this.code);
+      }
+    }
   },
   methods: {
     changeNum() {
@@ -40,15 +48,12 @@ export default {
 <style>
 #yanzheng {
   display: flex;
+  justify-content: space-between;
 }
 
 .elt-yan-l {
   float: left;
   width: 50%;
-}
-.elt-yan-r {
-  float: right;
-  margin-right: 56px;
 }
 .elt-changeyan {
   overflow: hidden;
@@ -58,9 +63,9 @@ export default {
   padding-top: 20px;
 }
 .elt-changeyan {
-  float: left;
+  float: right;
   line-height: 70px;
   font-size: 40px;
-  margin-left: 50px;
+  margin: 0 50px;
 }
 </style>

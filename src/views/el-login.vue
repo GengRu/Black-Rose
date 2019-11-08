@@ -26,7 +26,7 @@
         </div>
       </div>
       <!--验证码-->
-      <el_yan></el_yan>
+      <el_yan @getCode="captcha_code"></el_yan>
     </div>
     <p class="elt-loginelt-Tips">温馨提示：未注册过的账号，登录时将自动注册</p>
     <p class="elt-loginelt-Tips">注册过的用户可凭账号密码登录</p>
@@ -34,11 +34,9 @@
     <router-link to="/forget">
       <div class="elt-to-forget">重置密码？</div>
     </router-link>
-    <section class="elt-tip_text_container" v-show="!showHide">
-      <div class="elt-tip_icon"><span></span> <span></span></div>
-      <p class="elt-tip_text">{{ tipInfo }}</p>
-      <div class="confrim" @click="btn_sure">确认</div>
-    </section>
+    <el_alert v-show="!showHide" @closeSure="close">
+      <span slot="tipInfo">{{ tipInfo }}</span>
+    </el_alert>
   </div>
 </template>
 
@@ -46,19 +44,21 @@
 import el_Header from "../components/el-header/el-header";
 import el_switch from "../components/el-login/el-switch";
 import el_yan from "../components/el-login/el-yanzhengma";
+import el_alert from "../components/el-login/el-alert";
 export default {
   components: {
     el_Header,
     el_switch,
-    el_yan
+    el_yan,
+    el_alert
   },
   data() {
     return {
-      value: "",
+      showHide: true,
+      tipInfo: "",
       username: "",
       password: "",
-      showHide: true,
-      tipInfo: ""
+      code: ""
     };
   },
   methods: {
@@ -84,19 +84,29 @@ export default {
       } else {
         this.axios
           .post("http://elm.cangdu.org/v2/login", {
-            captcha_code: "1",
-            password: "11",
-            username: "1"
+            password: this.password,
+            username: this.username,
+            captcha_code: this.code
           })
           .then(data => {
             console.log(data.data);
-            this.showHide = false;
-            this.tipInfo = data.data.message;
+            if (!data.data.message) {
+              this.showHide = false;
+              this.tipInfo = "登录成功";
+            } else {
+              this.showHide = false;
+              this.tipInfo = data.data.message;
+            }
           });
       }
     },
-    btn_sure() {
+    // 接收关闭弹窗
+    close(a) {
       this.showHide = true;
+    },
+    // 接收验证码
+    captcha_code(a) {
+      this.code = a;
     }
   }
 };
@@ -155,76 +165,5 @@ export default {
   position: absolute;
   right: 50px;
   top: 35%;
-}
-#el-login .elt-yan-l {
-  float: left;
-  width: 50%;
-}
-#el-login .elt-yan-r {
-  float: right;
-  margin-right: 56px;
-}
-#el-login .elt-tip_text_container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-top: -432px;
-  margin-left: -432px;
-  width: 864px;
-  background-color: #fff;
-  padding-top: 43.2px;
-  border: 0.01rem;
-  border-radius: 18px;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  display: flex;
-}
-.elt-tip_text_container .elt-tip_icon {
-  width: 216px;
-  height: 216px;
-  border: 10.8px solid #f8cb86;
-  border-radius: 50%;
-  display: flex;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -ms-flex-direction: column;
-  flex-direction: column;
-}
-.elt-tip_text_container .elt-tip_icon span:first-of-type {
-  width: 8.64px;
-  height: 108px;
-  background-color: #f8cb86;
-}
-.elt-tip_text_container .elt-tip_icon span:nth-of-type(2) {
-  width: 14.4px;
-  height: 14.4px;
-  border: 0.01rem;
-  border-radius: 50%;
-  margin-top: 14.4px;
-  background-color: #f8cb86;
-}
-.elt-tip_text_container .elt-tip_text {
-  font-size: 50.4px;
-  color: #333;
-  line-height: 64.8px;
-  text-align: center;
-  margin-top: 57.6px;
-  padding: 0 28.8px;
-}
-.elt-tip_text_container .confrim {
-  font-size: 57.6px;
-  color: #fff;
-  font-weight: 700;
-  margin-top: 57.6px;
-  background-color: #4cd964;
-  width: 100%;
-  text-align: center;
-  line-height: 129.6px;
-  border: 0.01rem;
-  border-bottom-left-radius: 18px;
-  border-bottom-right-radius: 18px;
 }
 </style>
