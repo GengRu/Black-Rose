@@ -31,8 +31,8 @@
 	
 	<!-- 搜索结果 -->
 	<div v-for="(i,$idx) in dataArr" :key='$idx' class="elr-search-jg" @click="entBtn(i.name,i.address)">
-		<div class="elr-search-tt">{{i.name}}</div>
-		<div class="elr-search-ct">{{i.address}}</div>
+			<div class="elr-search-tt">{{i.name}}</div>
+			<div class="elr-search-ct">{{i.address}}</div>
 	</div>
   </div>
 </template>

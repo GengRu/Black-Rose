@@ -4,6 +4,7 @@ import Home from "../views/Home.vue";
 const city = () => import("../views/el-city.vue");
 const login = () => import("../views/el-login.vue");
 const forget = () => import("../views/el-forget.vue");
+const msite = () => import("../views/el-msite.vue");
 
 Vue.use(VueRouter);
 
@@ -18,8 +19,8 @@ const routes = [
     component: Home
   },
   {
-    path: '/city/:id/:names',
-    name: 'city',
+    path: "/city/:id/:names",
+    name: "city",
     component: city
   },
   {
@@ -31,6 +32,11 @@ const routes = [
     path: "/forget",
     name: "forget",
     component: forget
+  },
+  {
+    path: "/msite",
+    name: "msite",
+    component: msite
   }
 ];
 

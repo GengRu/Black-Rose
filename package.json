@@ -54,7 +54,7 @@
     "plugins": {
       "autoprefixer": {},
       "postcss-pxtorem": {
-        "rootValue": 56,
+        "rootValue": 100,
         "propList": [
           "*"
         ]

@@ -5,9 +5,12 @@ import ElementUI from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
 import MintUI from "mint-ui";
 import "mint-ui/lib/style.css";
+import "lib-flexible/flexible";
 import App from "./App.vue";
 import store from "./store";
-import router from "./router"
+import router from "./router";
+import "../iconfont/iconfont.css";
+import "../iconfont/iconfont.js";
 Vue.use(VueAxios, axios);
 Vue.use(MintUI);
 Vue.use(ElementUI);
