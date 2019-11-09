@@ -110,76 +110,77 @@ export default {
 <style scoped>
 #el-city {
   background-color: #f5f7f6;
-  padding-top: 180px;
+  padding-top: 1.8rem;
 }
 
 /* 搜索 */
 .elr-search {
   background-color: #fff;
-  padding: 28px 55px;
-  font-size: 40px;
-  border-top: 7px solid #e3e3e5;
-  border-bottom: 7px solid #e3e3e5;
+  padding: 0.28rem 0.55rem;
+  font-size: 0.4rem;
+  border-top: 0.07rem solid #e3e3e5;
+  border-bottom: 0.07rem solid #e3e3e5;
 }
 
 /* 搜索input框 */
 .elr-search-ipt {
   width: 100%;
-  height: 95px;
-  line-height: 95px;
+  height: 0.95rem;
+  line-height: 0.95rem;
   box-sizing: border-box;
-  padding-left: 20px;
-  border-radius: 10px;
-  margin-bottom: 25px;
+  padding-left: 0.2rem;
+  border-radius: 0.1rem;
+  margin-bottom: 0.25rem;
+  font-size: 0.4rem;
 }
 
 /* 搜索按钮 */
 .elr-search-btn {
   width: 100%;
-  height: 95px;
-  line-height: 95px;
+  height: 0.95rem;
+  line-height: 0.95rem;
   background-color: #3690e8;
   color: #ffffff;
   text-align: center;
-  border-radius: 10px;
+  border-radius: 0.1rem;
 }
 
 /* 搜索历史 */
 .elr-search-ls {
-  padding: 10px 35px;
+  padding: 0.1rem 0.35rem;
   color: #1f1f21;
-  font-size: 30px;
-  border-bottom: 7px solid #e3e3e5;
+  font-size: 0.3rem;
+  border-bottom: 0.07rem solid #e3e3e5;
 }
 
 /* 搜索结果 */
 .elr-search-jg {
-  padding: 28px 56px;
-  border-bottom: 7px solid #e3e3e5;
-  font-size: 40px;
+  padding: 0.28rem 0.56rem;
+  border-bottom: 0.07rem solid #e3e3e5;
+  font-size: 0.4rem;
   color: #1a1a1a;
   background-color: #ffffff;
 }
 
 /* 搜索结果标题 */
 .elr-search-tt {
-  padding: 28px 0;
+  padding: 0.28rem 0;
   font-weight: bold;
   color: #000000;
 }
 
 /* 搜索结果内容 */
 .elr-search-ct {
-  padding: 13px 0;
-  font-size: 30px;
+  padding: 0.13rem 0;
+  font-size: 0.3rem;
   color: #858585;
 }
 
 /* 搜索结果删除按钮 */
 .elr-search-removeBtn {
   text-align: center;
-  padding: 40px 0;
-  font-size: 46px;
+  padding: 0.4rem 0;
+  font-size: 0.46rem;
   color: #6e6e6e;
   background-color: #ffffff;
 }

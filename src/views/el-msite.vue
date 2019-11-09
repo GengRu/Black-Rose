@@ -72,24 +72,34 @@ export default {
 
 <style>
 #msite {
-  padding: 130px 0;
+  padding: 1.3rem 0;
 }
 .el-icon-arrow-left {
-  font-size: 42px;
+  font-size: 0.42rem;
 }
 .elw-sTitle {
-  height: 96px;
-  line-height: 96px;
-  margin-top: 20px;
-  font-size: 44px;
+  height: 0.96rem;
+  line-height: 0.96rem;
+  margin-top: 0.2rem;
+  font-size: 0.44rem;
   width: 100%;
   color: #999;
   background-color: #ffffff;
 }
 .elw-sTitle span {
-  padding: 0 10px;
+  padding: 0 0.1rem;
 }
 .elw-sTitle div {
-  padding: 20px;
+  padding: 0.2rem;
+}
+
+.el-icon-star-on {
+  font-size: 0.4rem;
+  margin-right: 0;
+}
+.el-rate__text {
+  font-size: 0.36rem;
+  margin-left: 0.2rem;
+  vertical-align: top;
 }
 </style>

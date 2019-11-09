@@ -89,103 +89,103 @@ export default {
 </script>
 <style scoped>
 #home {
-  padding-top: 160px;
+  padding-top: 1.6rem;
 }
 
 .elj-position {
-  height: 246px;
-  border-bottom: 1px solid #e4e2e3;
+  height: 2.46rem;
+  border-bottom: 0.01rem solid #e4e2e3;
   background: white;
-  margin-bottom: 29px;
+  margin-bottom: 0.29rem;
 }
 .elj-current {
-  height: 129px;
-  border-bottom: 1px solid #e4e2e3;
-  padding: 0 28px;
+  height: 1.29rem;
+  border-bottom: 0.01rem solid #e4e2e3;
+  padding: 0 0.28rem;
   overflow: hidden;
 }
 .elj-l {
-  line-height: 129px;
-  font-size: 34px;
+  line-height: 1.29rem;
+  font-size: 0.34rem;
   color: #5b595a;
   float: left;
 }
 .elj-r {
-  line-height: 129px;
-  font-size: 33px;
+  line-height: 1.29rem;
+  font-size: 0.33rem;
   color: #9f9f9f;
   font-weight: 900;
   float: right;
-  margin-right: 5px;
+  margin-right: 0.05rem;
 }
 .right {
-  font-size: 40px;
-  line-height: 129px;
+  font-size: 0.4rem;
+  line-height: 1.29rem;
   float: right;
 }
 .elj-choose {
-  padding: 0 28px;
+  padding: 0 0.28rem;
 }
 .elj-host {
-  min-height: 200px;
-  border-top: 1px solid #e4e2e3;
-  border-bottom: 1px solid #e4e2e3;
+  min-height: 2rem;
+  border-top: 0.01rem solid #e4e2e3;
+  border-bottom: 0.01rem solid #e4e2e3;
   background: white;
-  margin-bottom: 29px;
+  margin-bottom: 0.29rem;
 }
 .elj-host-title {
-  height: 98px;
-  line-height: 98px;
-  padding: 0 28px;
+  height: 0.98rem;
+  line-height: 0.98rem;
+  padding: 0 0.28rem;
 }
 .elj-host-title-m {
-  font-size: 34px;
+  font-size: 0.34rem;
   color: #6b696a;
 }
 .elj-host-ev {
   overflow: hidden;
 }
 .elj-host-item {
-  height: 117px;
-  border: 1px solid #e9e7e8;
-  line-height: 117px;
+  height: 1.17rem;
+  border: 0.01rem solid #e9e7e8;
+  line-height: 1.17rem;
   width: 25%;
   float: left;
   text-align: center;
-  font-size: 37px;
+  font-size: 0.37rem;
   color: #5195bc;
   box-sizing: border-box;
 }
 .elj-sort {
-  /* border-top: 1px solid #e4e2e3;
-  border-bottom: 1px solid #e4e2e3; */
+  /* border-top: 0.01rem solid #e4e2e3;
+  border-bottom: 0.01rem solid #e4e2e3; */
   background: white;
-  margin-bottom: 29px;
+  margin-bottom: 0.29rem;
   overflow: hidden;
 }
 .elj-sort-title {
-  height: 98px;
-  line-height: 98px;
-  padding: 0 28px;
+  height: 0.98rem;
+  line-height: 0.98rem;
+  padding: 0 0.28rem;
 }
 .elj-sort-title-m {
-  font-size: 34px;
+  font-size: 0.34rem;
   color: #6b696a;
 }
 
 .elj-sort-item {
-  height: 117px;
-  border: 1px solid #e9e7e8;
-  line-height: 117px;
+  height: 1.17rem;
+  border: 0.01rem solid #e9e7e8;
+  line-height: 1.17rem;
   width: 25%;
   float: left;
   text-align: center;
-  font-size: 37px;
+  font-size: 0.37rem;
   color: #5195bc;
   box-sizing: border-box;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  padding: 0 50px;
+  padding: 0 0.5rem;
 }
 </style>

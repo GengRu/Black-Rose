@@ -29,14 +29,14 @@ export default {};
   left: 0;
   width: 100%;
   color: #fff;
-  font-size: 48px;
+  font-size: 0.48rem;
   z-index: 10;
 }
 .elw-continer {
   width: 100%;
-  line-height: 136px;
+  line-height: 1.36rem;
   background: #3190e8;
-  height: 136px;
+  height: 1.36rem;
 }
 .elw-confeak {
   width: 90%;

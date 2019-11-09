@@ -120,56 +120,57 @@ export default {
 
 <style>
 #el-login .el-icon-arrow-left:before {
-  font-size: 60px;
-  line-height: 140px;
+  font-size: 0.6rem;
+  line-height: 1.4rem;
 }
 #el-login {
   background-color: #f5f5f5;
   height: 100vh;
-  border-top: 1px solid transparent;
+  border-top: 0.01rem solid transparent;
   box-sizing: border-box;
 }
 #el-login .elt-user-pass {
   background-color: #fff;
-  margin-top: 178px;
+  margin-top: 1.78rem;
 }
 #el-login .elt-user-pass input {
   outline: none;
   border: none;
-  padding: 0 56px;
+  padding: 0 0.56rem;
+  font-size: 0.5rem;
 }
 #el-login .elt-input {
-  height: 150px;
-  line-height: 150px;
-  border-bottom: 1px solid #f1f1f1;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  border-bottom: 0.01rem solid #f1f1f1;
   position: relative;
   overflow: hidden;
 }
 #el-login .elt-loginelt-Tips {
-  font-size: 40px;
+  font-size: 0.4rem;
   color: red;
-  padding: 32px 48px;
-  line-height: 40px;
+  padding: 0.32rem 0.48rem;
+  line-height: 0.4rem;
 }
 #el-login .elt-login {
-  margin: 0 35px 76px;
-  font-size: 52px;
+  margin: 0 0.35rem 0.76rem;
+  font-size: 0.52rem;
   color: #fff;
   background-color: #4cd964;
-  line-height: 140px;
-  border: 1px;
-  border-radius: 12px;
+  line-height: 1.4rem;
+  border: 0.01rem;
+  border-radius: 0.12rem;
   text-align: center;
 }
 #el-login .elt-to-forget {
   float: right;
-  font-size: 48px;
+  font-size: 0.48rem;
   color: #3b95e9;
-  margin-right: 24px;
+  margin-right: 0.24rem;
 }
 #el-login .elt-switch {
   position: absolute;
-  right: 50px;
+  right: 0.5rem;
   top: 35%;
 }
 </style>

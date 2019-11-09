@@ -51,9 +51,9 @@ export default {
 <style>
 #lunbo {
   width: 100%;
-  height: 580px;
+  height: 5.8rem;
   background-color: #ffffff;
-  padding-top: 40px;
+  padding-top: 0.4rem;
 }
 
 .elr-lunbo-box {
@@ -74,19 +74,20 @@ export default {
 }
 
 .elr-lunbo-box-tt {
-  padding: 50px 0;
+  padding: 0.5rem 0;
+  font-size: 0.38rem;
 }
 
 #lunbo .mint-swipe-indicators {
-  bottom: 60px;
+  bottom: 0.2rem;
 }
 
 #lunbo .mint-swipe-indicator {
-  width: 20px;
-  height: 20px;
+  width: 0.2rem;
+  height: 0.2rem;
   opacity: 1;
   background: #cacaca;
-  margin: 0 10px;
+  margin: 0 0.1rem;
 }
 
 #lunbo .mint-swipe-indicator.is-active {

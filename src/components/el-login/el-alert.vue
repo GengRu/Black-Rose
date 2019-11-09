@@ -29,22 +29,22 @@ export default {
   position: absolute;
   top: 50%;
   left: 50%;
-  margin-top: -432px;
-  margin-left: -432px;
-  width: 864px;
+  margin-top: -4.32rem;
+  margin-left: -4.32rem;
+  width: 8.64rem;
   background-color: #fff;
-  padding-top: 43.2px;
-  border: 0.01rem;
-  border-radius: 18px;
+  padding-top: 0.43rem;
+  border: 1px;
+  border-radius: 0.18rem;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   display: flex;
 }
 .elt-tip_text_container .elt-tip_icon {
-  width: 216px;
-  height: 216px;
-  border: 10.8px solid #f8cb86;
+  width: 2.16rem;
+  height: 2.16rem;
+  border: 0.11rem solid #f8cb86;
   border-radius: 50%;
   display: flex;
   -ms-flex-pack: center;
@@ -55,37 +55,41 @@ export default {
   flex-direction: column;
 }
 .elt-tip_text_container .elt-tip_icon span:first-of-type {
-  width: 8.64px;
-  height: 108px;
+  width: 0.09rem;
+  height: 1.08rem;
   background-color: #f8cb86;
 }
 .elt-tip_text_container .elt-tip_icon span:nth-of-type(2) {
-  width: 14.4px;
-  height: 14.4px;
-  border: 0.01rem;
+  width: 0.14rem;
+  height: 0.14rem;
+  border: 1px;
   border-radius: 50%;
-  margin-top: 14.4px;
+  margin-top: 0.14rem;
   background-color: #f8cb86;
 }
 .elt-tip_text_container .elt-tip_text {
-  font-size: 50.4px;
+  font-size: 0.5rem;
   color: #333;
-  line-height: 64.8px;
+  line-height: 0.65rem;
+  height: 0.65rem;
   text-align: center;
-  margin-top: 57.6px;
-  padding: 0 28.8px;
+  margin-top: 0.58rem;
+  padding: 0 0.29rem;
+}
+.elt-tip_text_container .elt-tip_text span {
+  font-size: 0.5rem;
 }
 .elt-tip_text_container .confrim {
-  font-size: 57.6px;
+  font-size: 0.58rem;
   color: #fff;
   font-weight: 700;
-  margin-top: 57.6px;
+  margin-top: 0.58rem;
   background-color: #4cd964;
   width: 100%;
   text-align: center;
-  line-height: 129.6px;
-  border: 0.01rem;
-  border-bottom-left-radius: 18px;
-  border-bottom-right-radius: 18px;
+  line-height: 1.3rem;
+  border: 1px;
+  border-bottom-left-radius: 0.18rem;
+  border-bottom-right-radius: 0.18rem;
 }
 </style>

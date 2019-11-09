@@ -37,8 +37,8 @@ export default {
 <style scoped>
 #footer {
   width: 100%;
-  height: 130px;
-  border-top: 1px solid #f9f9f9;
+  height: 1.3rem;
+  border-top: 0.01rem solid #f9f9f9;
   position: fixed;
   bottom: 0;
   left: 0;
@@ -48,7 +48,7 @@ export default {
 .elj-footer {
   overflow: hidden;
   display: flex;
-  padding-top: 15px;
+  padding-top: 0.15rem;
 }
 .elj-footer-item {
   float: left;
@@ -56,11 +56,11 @@ export default {
   text-align: center;
 }
 .elj-footer-txt {
-  font-size: 30px;
+  font-size: 0.3rem;
   color: #797979;
 }
 .elj-fon {
-  font-size: 54px;
+  font-size: 0.54rem;
   color: #5e5e5e;
 }
 .a {

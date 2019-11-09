@@ -55,9 +55,10 @@ export default {};
 
 <style scoped>
 .elw-continer {
-  padding: 50px 22px;
+  padding: 0.5rem 0.22rem;
   overflow: hidden;
   background-color: #ffffff;
+  border-bottom: 0.03rem solid #f1f1f1;
 }
 .elw-conTitle {
   display: flex;
@@ -72,34 +73,34 @@ export default {};
 }
 .elw-conImg {
   width: 20%;
-  height: 178px;
-  padding: 16px 0;
-  margin-right: 24px;
+  height: 1.78rem;
+  padding: 0.16rem 0;
+  margin-right: 0.24rem;
   float: left;
 }
 .elw-stions {
-  font-size: 30px;
+  font-size: 0.3rem;
   float: left;
-  margin-right: 10px;
-  line-height: 40px;
+  margin-right: 0.1rem;
+  line-height: 0.4rem;
 }
 .elw-conImg img {
   width: 100%;
   height: 100%;
 }
 .elw-conIcon {
-  width: 80px;
-  height: 40px;
-  margin-top: 8px;
-  margin-right: 18px;
+  width: 0.8rem;
+  height: 0.4rem;
+  margin-top: 0.08rem;
+  margin-right: 0.18rem;
   background: #ffd930;
   color: #333;
-  font-size: 30px;
+  font-size: 0.3rem;
   float: left;
   text-align: center;
-  line-height: 40px;
+  line-height: 0.4rem;
   font-weight: bold;
-  border-radius: 4px;
+  border-radius: 0.04rem;
 }
 .elw-conTitem {
   flex: 1;
@@ -109,36 +110,36 @@ export default {};
   color: #333;
 }
 .elw-margin {
-  margin-top: 38px;
+  margin-top: 0.38rem;
 }
 .elw-conLable span {
-  border: 2px solid #f1f1f1;
-  font-size: 30px;
+  border: 0.02rem solid #f1f1f1;
+  font-size: 0.3rem;
   color: #999;
-  padding: 4px;
-  margin: 1px;
+  padding: 0.04rem;
+  margin: 0.01rem;
 }
 .elw-conName div {
   font-weight: bold;
-  font-size: 40px;
+  font-size: 0.4rem;
 }
 .elw-order {
-  font-size: 24px;
+  font-size: 0.24rem;
   float: left;
 }
 .elw-conLable .elw-backNe {
   background: #3190e8;
   color: #fff;
-  border-radius: 4px;
+  border-radius: 0.04rem;
 }
 .elw-conLable .elw-bordNe {
-  border-radius: 4px;
-  border: 2px solid #3190e8;
+  border-radius: 0.04rem;
+  border: 0.02rem solid #3190e8;
   color: #3190e8;
 }
 .elw-conNent {
   display: flex;
-  font-size: 28px;
+  font-size: 0.28rem;
 }
 .elw-conSoat {
   flex: 1;
@@ -147,10 +148,11 @@ export default {};
 
 .elw-conTime > div {
   float: right;
-  font-size: 24px;
+  font-size: 0.3rem;
   color: #999;
 }
 .elw-conTime .elw-consen div {
   color: #3190e8;
+  font-size: 0.3rem;
 }
 </style>

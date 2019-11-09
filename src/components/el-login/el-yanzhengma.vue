@@ -62,12 +62,16 @@ export default {
 }
 .elt-value {
   float: left;
-  padding-top: 20px;
+  padding-top: 0.2rem;
+  width: 2.6rem;
+}
+.elt-value img {
+  width: 100%;
 }
 .elt-changeyan {
   float: right;
-  line-height: 70px;
-  font-size: 40px;
-  margin: 0 50px;
+  line-height: 0.7rem;
+  font-size: 0.4rem;
+  margin: 0 0.5rem;
 }
 </style>

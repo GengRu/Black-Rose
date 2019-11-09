@@ -13,12 +13,13 @@
 .elt-user-pass input {
   outline: none;
   border: none;
-  padding: 0 56px;
+  padding: 0 0.56rem;
+  font-size: 0.5rem;
 }
 .elt-input {
-  height: 150px;
-  line-height: 150px;
-  border-bottom: 1px solid #f1f1f1;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  border-bottom: 0.01rem solid #f1f1f1;
   position: relative;
   overflow: hidden;
 }

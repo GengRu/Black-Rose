@@ -9,7 +9,7 @@
     </el_Header>
 
     <!--修改密码-->
-    <div style="margin-top: 50px;">
+    <div class="elt-paddingT">
       <el_input>
         <div slot="elt-input">
           <input type="text" placeholder="帐号" v-model="username" />
@@ -120,25 +120,28 @@ export default {
 </script>
 
 <style>
+.elt-paddingT {
+  margin-top: 1.78rem;
+}
 #el-forget .el-icon-arrow-left:before {
-  font-size: 60px;
-  line-height: 140px;
+  font-size: 0.6rem;
+  line-height: 1.4rem;
 }
 #el-forget {
   background-color: #f5f5f5;
   height: 100vh;
-  border-top: 1px solid transparent;
+  border-top: 0.01rem solid transparent;
   box-sizing: border-box;
 }
 .elt-login {
-  margin: 0 35px 76px;
-  font-size: 52px;
+  margin: 0 0.35rem 0.76rem;
+  font-size: 0.52rem;
   color: #fff;
   background-color: #4cd964;
-  line-height: 140px;
-  border: 1px;
-  border-radius: 12px;
+  line-height: 1.4rem;
+  border: 0.01rem;
+  border-radius: 0.12rem;
   text-align: center;
-  margin-top: 80px;
+  margin-top: 0.8rem;
 }
 </style>

@@ -19,18 +19,18 @@ export default {
 
 <style>
 .mint-switch-core {
-  width: 150px;
-  height: 50px;
-  border-radius: 50px;
+  width: 1.5rem;
+  height: 0.5rem;
+  border-radius: 0.5rem;
 }
 .mint-switch-core::after {
-  width: 80px;
-  height: 80px;
+  width: 0.8rem;
+  height: 0.8rem;
   border-radius: 50%;
-  top: -18px;
+  top: -0.18rem;
 }
 .mint-switch-input:checked + .mint-switch-core::after {
-  transform: translateX(80px);
+  transform: translateX(0.8rem);
 }
 .mint-switch-core::before {
   display: none;
