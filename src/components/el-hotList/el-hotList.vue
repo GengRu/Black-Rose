@@ -67,6 +67,7 @@ export default {};
 .elw-content {
   float: left;
   width: 77%;
+  font-size: 0.36rem;
 }
 .elw-conNent {
   width: 100%;

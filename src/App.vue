@@ -23,7 +23,9 @@ export default {
 * {
   margin: 0;
   padding: 0;
-  font-size: 0.36rem;
+}
+.iconfont {
+  font-size: 1em;
 }
 body {
   background-color: #f5f5f5;

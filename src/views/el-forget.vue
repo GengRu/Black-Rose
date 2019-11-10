@@ -3,7 +3,7 @@
     <!--头部-->
     <el_Header>
       <div slot="elw-Left">
-        <router-link to="./" class="el-icon-arrow-left"></router-link>
+        <span @click="$router.back()" class="el-icon-arrow-left"></span>
       </div>
       <div slot="elw-cont">重置密码</div>
     </el_Header>

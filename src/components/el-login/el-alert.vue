@@ -40,6 +40,7 @@ export default {
   align-items: center;
   justify-content: center;
   display: flex;
+  animation: tipMove 0.4s;
 }
 .elt-tip_text_container .elt-tip_icon {
   width: 2.16rem;
@@ -91,5 +92,19 @@ export default {
   border: 1px;
   border-bottom-left-radius: 0.18rem;
   border-bottom-right-radius: 0.18rem;
+}
+@-webkit-keyframes tipMove {
+  0% {
+    transform: scale(1);
+  }
+  35% {
+    transform: scale(0.8);
+  }
+  70% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 </style>

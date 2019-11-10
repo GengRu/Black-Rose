@@ -38,6 +38,7 @@ export default {
 #footer {
   width: 100%;
   height: 1.3rem;
+  font-size: 0.36rem;
   border-top: 0.01rem solid #f9f9f9;
   position: fixed;
   bottom: 0;

@@ -63,5 +63,9 @@ export default {};
   overflow: hidden;
   text-overflow: ellipsis;
   width: 100%;
+  font-size: 0.5rem;
+}
+.elw-context div {
+  font-size: 0.5rem;
 }
 </style>

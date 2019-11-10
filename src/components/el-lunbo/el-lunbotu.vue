@@ -41,7 +41,7 @@ export default {
         "http://elm.cangdu.org/v2/index_entry?geohash=32.054366,118.79427&group_type=1&flags[]=F"
       )
       .then(data => {
-        console.log(data.data);
+        // console.log(data.data);
         this.dataArr = data.data;
       });
   }

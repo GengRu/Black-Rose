@@ -3,7 +3,7 @@
     <!--头部-->
     <el_Header>
       <div slot="elw-Left">
-        <router-link to="./" class="el-icon-arrow-left"></router-link>
+        <span @click="$router.back()" class="el-icon-arrow-left"></span>
       </div>
       <div slot="elw-cont">
         密码登录
@@ -35,7 +35,7 @@
       <div class="elt-to-forget">重置密码？</div>
     </router-link>
     <!--弹窗-->
-    <el_alert v-show="!showHide" @closeSure="close">
+    <el_alert v-if="!showHide" @closeSure="close">
       <span slot="tipInfo">{{ tipInfo }}</span>
     </el_alert>
   </div>
@@ -95,8 +95,13 @@ export default {
             // console.log(data.data);
             // 判断是否登录成功，成功则进入“我的”页面
             if (!data.data.message) {
-              this.showHide = false;
-              this.tipInfo = "登录成功";
+              // 判断路由模式跳转
+              if (this.$router.mode == "hash") {
+                location.href = "#/profile";
+              } else {
+                location.href = "/profile";
+              }
+              localStorage.loginInfo = JSON.stringify(data.data);
             } else {
               this.showHide = false;
               this.tipInfo = data.data.message;
