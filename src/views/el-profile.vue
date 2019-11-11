@@ -1,15 +1,15 @@
 <template>
-  <div id="el-my">
-    <el_Header>
-      <div slot="elw-Left">
-        <span @click="$router.back()" class="el-icon-arrow-left"></span>
-      </div>
-      <div slot="elw-cont">
-        <span class="elg-title">我的</span>
-      </div>
-    </el_Header>
-    <router-link :to="haveUser ? '/profile/info' : '/login'">
-      <div class="elg-header">
+  <div>
+    <div id="el-my">
+      <el_Header>
+        <div slot="elw-Left">
+          <span @click="$router.back()" class="el-icon-arrow-left"></span>
+        </div>
+        <div slot="elw-cont">
+          <span class="elg-title">我的</span>
+        </div>
+      </el_Header>
+      <div class="elg-header" @click="goInfo">
         <div class="elg-header-img">
           <img :src="'//elm.cangdu.org/img/' + imgUrl" alt="" />
         </div>
@@ -25,73 +25,77 @@
           <i class="iconfont elg-more">&#xe715;</i>
         </div>
       </div>
-    </router-link>
-    <div class="elg-much">
-      <router-link to="/balance">
-        <div class="elg-much-money">
-          <p><span>0.00</span> 元</p>
-          <p>我的余额</p>
-        </div>
-      </router-link>
-      <router-link to="benefit">
-        <div class="elg-much-price">
-          <p>
-            <span>{{ gift_amount }}</span> 个
-          </p>
-          <p>我的优惠</p>
-        </div>
-      </router-link>
-      <router-link to="points">
-        <div class="elg-much-grade">
-          <p>
-            <span>{{ point }}</span> 个
-          </p>
-          <p>我的积分</p>
-        </div>
-      </router-link>
+      <div class="elg-much">
+        <router-link to="/balance">
+          <div class="elg-much-money">
+            <p><span>0.00</span> 元</p>
+            <p>我的余额</p>
+          </div>
+        </router-link>
+        <router-link to="benefit">
+          <div class="elg-much-price">
+            <p>
+              <span>{{ gift_amount }}</span> 个
+            </p>
+            <p>我的优惠</p>
+          </div>
+        </router-link>
+        <router-link to="points">
+          <div class="elg-much-grade">
+            <p>
+              <span>{{ point }}</span> 个
+            </p>
+            <p>我的积分</p>
+          </div>
+        </router-link>
+      </div>
+      <div class="elg-list">
+        <ul style="margin-bottom:0.1rem;">
+          <router-link to="/order">
+            <li>
+              <i class="iconfont">&#xe62c;</i>
+              我的订单
+              <span class="iconfont">&#xe715;</span>
+            </li>
+          </router-link>
+          <li>
+            <i class="iconfont" style="color:#dd8172;">&#xe630;</i>积分商城
+            <span class="iconfont">&#xe715;</span>
+          </li>
+          <router-link to="/vipcard">
+            <li>
+              <i class="iconfont" style="color:#ffc536;">&#xe600;</i
+              >e饿了么会员卡
+              <span class="iconfont">&#xe715;</span>
+            </li>
+          </router-link>
+        </ul>
+        <ul>
+          <router-link to="/service">
+            <li>
+              <i class="iconfont" style="color:#3190e8;">&#xe60d;</i>服务中心
+              <span class="iconfont">&#xe715;</span>
+            </li>
+          </router-link>
+          <router-link to="/download">
+            <li>
+              <i class="iconfont" style="color:#3190e8;">&#xe652;</i
+              >下载饿了么app
+              <span class="iconfont">&#xe715;</span>
+            </li>
+          </router-link>
+        </ul>
+      </div>
+      <el_Footer></el_Footer>
     </div>
-    <div class="elg-list">
-      <ul style="margin-bottom:0.1rem;">
-        <router-link to="/order">
-          <li>
-            <i class="iconfont">&#xe62c;</i>
-            我的订单
-            <span class="iconfont">&#xe715;</span>
-          </li>
-        </router-link>
-        <li>
-          <i class="iconfont" style="color:#dd8172;">&#xe630;</i>积分商城
-          <span class="iconfont">&#xe715;</span>
-        </li>
-        <router-link to="/vipcard">
-          <li>
-            <i class="iconfont" style="color:#ffc536;">&#xe600;</i>e饿了么会员卡
-            <span class="iconfont">&#xe715;</span>
-          </li>
-        </router-link>
-      </ul>
-      <ul>
-        <router-link to="/service">
-          <li>
-            <i class="iconfont" style="color:#3190e8;">&#xe60d;</i>服务中心
-            <span class="iconfont">&#xe715;</span>
-          </li>
-        </router-link>
-        <router-link to="/download">
-          <li>
-            <i class="iconfont" style="color:#3190e8;">&#xe652;</i>下载饿了么app
-            <span class="iconfont">&#xe715;</span>
-          </li>
-        </router-link>
-      </ul>
-    </div>
-    <el_Footer></el_Footer>
+    <router-view v-h></router-view>
   </div>
 </template>
 
 <script>
 import el_Header from "./../components/el-header/el-header";
 import el_Footer from "../components/el-footer/el-footer";
+import Vue from "vue";
 export default {
   components: { el_Header, el_Footer },
   data() {
@@ -102,6 +106,16 @@ export default {
       gift_amount: 0, //优惠个数
       point: 0 //积分
     };
+  },
+  methods: {
+    goInfo() {
+      if (this.haveUser) {
+        // console.log(1);
+        location.href = "#/profile/info";
+      } else {
+        location.href = "#/login";
+      }
+    }
   },
   created() {
     var loginInfo = JSON.parse(localStorage.loginInfo);

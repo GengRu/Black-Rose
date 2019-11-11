@@ -20,13 +20,13 @@ Vue.use(ElementUI);
 Vue.config.productionTip = false;
 Vue.prototype.$test = alert;
 
-Vue.directive('h',(a)=>{
-	a.style.transition = ".6s"
-	setTimeout(()=>{
-		a.style.left = 0
-		a.style.opacity = 1
-	}, 0);
-})
+Vue.directive("h", a => {
+  a.style.transition = ".6s";
+  setTimeout(() => {
+    a.style.left = 0;
+    a.style.opacity = 1;
+  }, 0);
+});
 //验证码请求
 axios.defaults.withCredentials = true;
 new Vue({

@@ -32,7 +32,7 @@
 		</div>
 		
 		<div class="confirmOrder-elr-btn">
-			<el-button type="success" class="confirmOrder-elr-btns" @click="confirmOrderBtn">成功按钮</el-button>	
+			<el-button type="success" class="confirmOrder-elr-btns" @click="confirmOrderBtn">确认支付</el-button>	
 		</div>
 	</div>
 </template>
