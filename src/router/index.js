@@ -33,6 +33,8 @@ const address = () => import("../views/child/profile-address.vue");
 const newadd = () => import("../views/child/profile-newadd.vue");
 // 选择地址
 const adddetail = () => import("../views/child/profile-adddetail.vue");
+//服务下子页面
+const questionDetail = () => import("../views/child/questionDetail");
 
 Vue.use(VueRouter);
 
@@ -138,7 +140,14 @@ const routes = [
     path: "/service",
     name: "service",
     // 服务
-    component: service
+    component: service,
+    children: [
+      {
+        path: "questionDetail",
+        name: "questionDetail",
+        component: questionDetail
+      }
+    ]
   },
   {
     path: "/download",

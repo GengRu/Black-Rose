@@ -1,6 +1,6 @@
 <template>
-  <div id="el-my">
-    <div>
+  <div>
+    <div id="el-my">
       <el_Header>
         <div slot="elw-Left">
           <span @click="$router.back()" class="el-icon-arrow-left"></span>
