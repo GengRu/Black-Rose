@@ -1,0 +1,21 @@
+一、命名规范
+class类名
+	田宝：elt-类名
+	赵相茹：elr-类名
+	王阎： elw-类名
+	赵江涛： elj-类名
+	翟春堂： elc-类名
+
+vue文件名
+路由名
+组件名： 
+	头部组件  组件名： el-header  文件名： el-header.vue
+	
+
+
+路径：	http://elm.cangdu.org/#/home
+
+	首页：/home
+	城市搜索：/city/1 --->  http://elm.cangdu.org/#/city/1      /:id
+	
+	
