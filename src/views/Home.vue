@@ -167,6 +167,7 @@ export default {
   height: 0.98rem;
   line-height: 0.98rem;
   padding: 0 0.28rem;
+  font-size: .4rem;
 }
 .elj-sort-title-m {
   font-size: 0.34rem;

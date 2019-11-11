@@ -23,6 +23,8 @@ const vipcard = () => import("../views/el-vipcard.vue");
 const service = () => import("../views/el-service.vue");
 // 下载
 const download = () => import("../views/el-download.vue");
+//服务下子页面
+const questionDetail = () => import("../views/children/questionDetail");
 
 Vue.use(VueRouter);
 
@@ -95,7 +97,14 @@ const routes = [
     path: "/service",
     name: "service",
     // 服务
-    component: service
+    component: service,
+    children: [
+      {
+        path: "questionDetail",
+        name: "questionDetail",
+        component: questionDetail
+      }
+    ]
   },
   {
     path: "/download",
