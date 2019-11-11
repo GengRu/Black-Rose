@@ -56,10 +56,8 @@
 </template>
 
 <script>
-import el_Header from "../components/el-header/el-header";
 export default {
   name: "home",
-  components: { el_Header },
   data() {
     return {
       current_arr: "",
@@ -134,7 +132,6 @@ export default {
   margin-bottom: 0.29rem;
 }
 .elj-host-title {
-  height: 0.98rem;
   line-height: 0.98rem;
   padding: 0 0.28rem;
 }
@@ -167,6 +164,7 @@ export default {
   height: 0.98rem;
   line-height: 0.98rem;
   padding: 0 0.28rem;
+  font-size: 0.4rem;
 }
 .elj-sort-title-m {
   font-size: 0.34rem;

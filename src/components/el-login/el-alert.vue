@@ -1,11 +1,13 @@
 <template>
-  <section class="elt-tip_text_container">
-    <div class="elt-tip_icon"><span></span> <span></span></div>
-    <p class="elt-tip_text">
-      <slot name="tipInfo"></slot>
-    </p>
-    <div class="confrim" @click="btn_sure">确认</div>
-  </section>
+  <div id="elt-alert">
+    <section class="elt-tip_text_container">
+      <div class="elt-tip_icon"><span></span> <span></span></div>
+      <p class="elt-tip_text">
+        <slot name="tipInfo"></slot>
+      </p>
+      <div class="confrim" @click="btn_sure">确认</div>
+    </section>
+  </div>
 </template>
 
 <script>
@@ -25,6 +27,14 @@ export default {
 </script>
 
 <style scoped>
+#elt-alert {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+}
 .elt-tip_text_container {
   position: absolute;
   top: 50%;

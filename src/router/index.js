@@ -23,6 +23,16 @@ const vipcard = () => import("../views/el-vipcard.vue");
 const service = () => import("../views/el-service.vue");
 // 下载
 const download = () => import("../views/el-download.vue");
+// 我的info
+const info = () => import("../views/child/profile-info.vue");
+// 修改用户名
+const setusername = () => import("../views/child/profile-setusername.vue");
+// 地址
+const address = () => import("../views/child/profile-address.vue");
+// 添加地址
+const newadd = () => import("../views/child/profile-newadd.vue");
+// 选择地址
+const adddetail = () => import("../views/child/profile-adddetail.vue");
 
 Vue.use(VueRouter);
 
@@ -65,7 +75,40 @@ const routes = [
     path: "/profile",
     name: "profile",
     // 我的
-    component: profile
+    component: profile,
+    children: [
+      {
+        path: "info",
+        name: "info",
+        component: info,
+        children: [
+          {
+            path: "setusername",
+            name: "setusername",
+            component: setusername
+          },
+          {
+            path: "address",
+            name: "address",
+            component: address,
+            children: [
+              {
+                path: "newadd",
+                name: "newadd",
+                component: newadd,
+                children: [
+                  {
+                    path: "adddetail",
+                    name: "adddetail",
+                    component: adddetail
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
   },
   {
     path: "/balance",
