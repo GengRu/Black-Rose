@@ -198,6 +198,10 @@ export default {
   min-height: 2.52rem;
   background: #fff;
 }
+.elg-much a {
+  display: block;
+  width: 33.3%;
+}
 .elg-much-money,
 .elg-much-price,
 .elg-much-grade {
@@ -205,6 +209,7 @@ export default {
   text-align: center;
   padding-top: 0.54rem;
   box-sizing: border-box;
+  height: 100%;
 }
 .elg-much-money,
 .elg-much-price {

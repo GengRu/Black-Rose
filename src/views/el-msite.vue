@@ -20,7 +20,9 @@
         <span>附近商家</span>
       </div>
     </div>
-    <el_hotList v-for="(i, $index) in list_arr" :key="$index">
+    <div v-for="(i, $index) in list_arr" :key="$index">
+    <router-link :to="{name:'shoplist',params:{geohash:i.latitude,id:i.id}}">
+      <el_hotList>
       <div slot="el-conImg">
         <img :src="'http://elm.cangdu.org/img/' + i.image_path" alt />
       </div>
@@ -40,6 +42,8 @@
       <div slot="el-conWz">{{ i.distance }}/</div>
       <div slot="el-conTime">{{ i.order_lead_time }}</div>
     </el_hotList>
+    </router-link>
+    </div>
   </div>
 </template>
 

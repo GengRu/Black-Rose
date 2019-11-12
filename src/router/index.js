@@ -35,7 +35,8 @@ const newadd = () => import("../views/child/profile-newadd.vue");
 const adddetail = () => import("../views/child/profile-adddetail.vue");
 //服务下子页面
 const questionDetail = () => import("../views/child/questionDetail");
-
+//商家页
+const shoplist = () => import("../views/shoplist.vue");
 Vue.use(VueRouter);
 
 const routes = [
@@ -154,6 +155,11 @@ const routes = [
     name: "download",
     // 下载
     component: download
+  },
+  {
+    path: "/shoplist/:geohash/:id",
+    name: "shoplist",
+    component: shoplist
   }
 ];
 

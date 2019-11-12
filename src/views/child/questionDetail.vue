@@ -68,7 +68,7 @@ export default {
 
 <style scoped>
 .elw-children {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 3rem;
   transition: 0.35s;
@@ -87,10 +87,11 @@ export default {
 .elw-text {
   position: relative;
   top: 1.3rem;
-  height: 120%;
+  height: 100%;
   overflow-y: auto;
 }
 section {
   font-size: 0.6rem;
+  padding-bottom:2rem; 
 }
 </style>
