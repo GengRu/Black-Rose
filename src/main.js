@@ -13,6 +13,7 @@ import store from "./store";
 import router from "./router";
 import App from "./App.vue";
 import loading from "./components/el-loading/loading";
+import alert from "./components/el-alert/alert";
 Vue.component("el_Header", el_Header);
 Vue.component("el_showMove", el_showMove);
 Vue.use(VueAxios, axios);
@@ -20,6 +21,14 @@ Vue.use(MintUI);
 Vue.use(ElementUI);
 Vue.config.productionTip = false;
 Vue.prototype.$loading = loading;
+Vue.prototype.$test = alert;
+Vue.directive("h", a => {
+  a.style.transition = ".6s";
+  setTimeout(() => {
+    a.style.left = 0;
+    a.style.opacity = 1;
+  }, 0);
+});
 //验证码请求
 axios.defaults.withCredentials = true;
 new Vue({

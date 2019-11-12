@@ -27,8 +27,8 @@ export default {};
 .elw-content div {
   line-height: 1.16rem;
 }
-.elw-flex{
-    flex: 1;
+.elw-flex {
+  flex: 1;
 }
 .elw-Iconr {
   text-align: right;
