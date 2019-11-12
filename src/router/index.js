@@ -13,10 +13,14 @@ const msite = () => import("../views/el-msite.vue");
 const profile = () => import("../views/el-profile.vue");
 // 我的余额
 const balance = () => import("../views/el-balance.vue");
+// 我的余额下一级
+const balance_detail = () => import("../views/el-balance_detail.vue");
 // 我的优惠
 const benefit = () => import("../views/el-benefit.vue");
 // 我的积分
 const points = () => import("../views/el-points.vue");
+// 我的积分
+const points_detail = () => import("../views/el-points_detail.vue");
 // 会员卡
 const vipcard = () => import("../views/el-vipcard.vue");
 // 服务
@@ -116,7 +120,14 @@ const routes = [
     path: "/balance",
     name: "balance",
     // 我的余额
-    component: balance
+    component: balance,
+    children: [
+      {
+        path: "balance_detail",
+        name: "balance_detail",
+        component: balance_detail
+      }
+    ]
   },
   {
     path: "/benefit",
@@ -128,7 +139,14 @@ const routes = [
     path: "/points",
     name: "points",
     // 我的积分
-    component: points
+    component: points,
+    children: [
+      {
+        path: "points_detail",
+        name: "points_detail",
+        component: points_detail
+      }
+    ]
   },
   {
     path: "/vipcard",

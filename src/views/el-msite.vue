@@ -57,11 +57,13 @@ export default {
     };
   },
   created() {
+    this.$loading(true);
     this.axios
       .get(
         "http://elm.cangdu.org/shopping/restaurants?latitude=39.0475&longitude=117.42993&offset=0&limit=20&extras[]=activities&keyword=&restaurant_category_id=&restaurant_category_ids[]=&order_by=&delivery_mode[]="
       )
       .then(res => {
+        this.$loading(false);
         this.list_arr = res.data;
         console.log(this.list_arr);
       });

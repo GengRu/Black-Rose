@@ -11,11 +11,11 @@
       </el_Header>
       <div class="elg-header" @click="goInfo">
         <div class="elg-header-img">
-          <img :src="'//elm.cangdu.org/img/' + imgUrl" alt="" />
+          <img :src="'//elm.cangdu.org/img/' + loginInfo.avatar" alt="" />
         </div>
 
         <div class="elg-header-font">
-          <p>{{ login }}</p>
+          <p>{{ loginInfo.username }}</p>
           <p>
             <i class="iconfont elg-iphone">&#xe608;</i>
             暂无绑定手机号
@@ -32,18 +32,18 @@
             <p>我的余额</p>
           </div>
         </router-link>
-        <router-link to="benefit">
+        <router-link to="/benefit">
           <div class="elg-much-price">
             <p>
-              <span>{{ gift_amount }}</span> 个
+              <span>{{ loginInfo.gift_amount }}</span> 个
             </p>
             <p>我的优惠</p>
           </div>
         </router-link>
-        <router-link to="points">
+        <router-link to="/points">
           <div class="elg-much-grade">
             <p>
-              <span>{{ point }}</span> 个
+              <span>{{ loginInfo.point }}</span> 个
             </p>
             <p>我的积分</p>
           </div>
@@ -88,7 +88,9 @@
       </div>
       <el_Footer></el_Footer>
     </div>
-    <router-view v-h></router-view>
+    <el_showMove>
+      <router-view slot="view" mode="out-in"></router-view>
+    </el_showMove>
   </div>
 </template>
 
@@ -104,7 +106,8 @@ export default {
       login: "登陆/注册",
       imgUrl: "",
       gift_amount: 0, //优惠个数
-      point: 0 //积分
+      point: 0, //积分
+      loginInfo: ""
     };
   },
   methods: {
@@ -118,6 +121,7 @@ export default {
     }
   },
   created() {
+    this.$loading(true);
     var loginInfo = JSON.parse(localStorage.loginInfo);
     this.axios
       .get("http://elm.cangdu.org/v1/user", {
@@ -126,11 +130,9 @@ export default {
         }
       })
       .then(data => {
+        this.$loading(false);
         // console.log(data.data);
-        this.login = data.data.username;
-        this.imgUrl = data.data.avatar;
-        this.gift_amount = data.data.gift_amount;
-        this.point = data.data.point;
+        this.loginInfo = data.data;
         this.haveUser = true;
       });
     // console.log(this.login);
@@ -198,6 +200,10 @@ export default {
   min-height: 2.52rem;
   background: #fff;
 }
+.elg-much a {
+  display: block;
+  width: 33.3%;
+}
 .elg-much-money,
 .elg-much-price,
 .elg-much-grade {
@@ -205,6 +211,7 @@ export default {
   text-align: center;
   padding-top: 0.54rem;
   box-sizing: border-box;
+  height: 100%;
 }
 .elg-much-money,
 .elg-much-price {

@@ -16,3 +16,13 @@
     <!-- built files will be auto injected -->
   </body>
 </html>
+<script>
+    (function() {
+      document.documentElement.style.fontSize =
+        document.documentElement.clientWidth / 1080 * 100 + "px";
+      window.onresize = function() {
+        document.documentElement.style.fontSize =
+          document.documentElement.clientWidth / 1080 * 100 + "px";
+      };
+    })();
+</script>

@@ -43,7 +43,9 @@
       </div>
       <div class="elt-sure" @click="btnSure">新增地址</div>
     </div>
-    <router-view v-h></router-view>
+    <el_showMove>
+      <router-view slot="view"></router-view>
+    </el_showMove>
   </div>
 </template>
 
@@ -130,12 +132,12 @@ export default {
 
 <style scoped>
 .elt-newadd {
-  position: absolute;
+  position: fixed;
   width: 100%;
   height: 100vh;
   background-color: #f5f5f5;
   top: 0;
-  left: 20%;
+  left: 0;
   right: 0;
   bottom: 0;
   z-index: 10;
