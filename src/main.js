@@ -11,11 +11,15 @@ import el_Header from "./components/el-header/el-header.vue";
 import store from "./store";
 import router from "./router";
 import App from "./App.vue";
+import alert from "./components/el-alert/alert"
+
 Vue.component("el_Header", el_Header);
 Vue.use(VueAxios, axios);
 Vue.use(MintUI);
 Vue.use(ElementUI);
 Vue.config.productionTip = false;
+Vue.prototype.$test = alert;
+
 Vue.directive("h", a => {
   a.style.transition = ".6s";
   setTimeout(() => {

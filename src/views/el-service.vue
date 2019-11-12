@@ -39,7 +39,6 @@
       </div>
     </div>
     <router-view />
-    <!-- -->
   </div>
 </template>
 
@@ -115,9 +114,6 @@ export default {
 </script>
 
 <style scoped>
-/* .elw-Pos{
-  z-index: 1;
-} */
 .elw-pos {
   position: relative;
   left: 3rem;

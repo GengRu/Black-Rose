@@ -76,6 +76,7 @@ export default {
   background: #fff;
   height: 100%;
   width: 100%;
+  
 }
 .dss {
   width: 100%;
@@ -92,6 +93,6 @@ export default {
 }
 section {
   font-size: 0.6rem;
-  padding-bottom:2rem; 
+  padding-bottom: 2rem;
 }
 </style>
