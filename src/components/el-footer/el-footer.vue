@@ -1,14 +1,11 @@
 <template>
   <div id="footer">
     <div class="elj-footer">
-      <div
-        class="elj-footer-item"
-        v-for="(i, $index) in arr"
-        :key="$index"
-      >
-	  
+      <div class="elj-footer-item" v-for="(i, $index) in arr" :key="$index">
         <router-link :to="i.path">
-          <span class="iconfont elj-fon" :class="index == i.path ? 'a' : ''">{{i.icon}}</span>
+          <span class="iconfont elj-fon" :class="index == i.path ? 'a' : ''">{{
+            i.icon
+          }}</span>
           <p class="elj-footer-txt">{{ i.text }}</p>
         </router-link>
       </div>
@@ -20,7 +17,7 @@
 export default {
   data() {
     return {
-      index: '',
+      index: "",
       arr: [
         { text: "外卖", icon: "\ue652", path: "" },
         { text: "搜索", icon: "\ue605", path: "/search" },
@@ -29,12 +26,12 @@ export default {
       ]
     };
   },
-  created(){
-	this.index = this.$route.path
-	if(this.$route.params.mName != undefined){
-		localStorage.mName = "/msite/"+this.$route.params.mName
-	}
-	this.arr[0].path = localStorage.mName
+  created() {
+    this.index = this.$route.path;
+    if (this.$route.params.mName != undefined) {
+      localStorage.mName = "/msite/" + this.$route.params.mName;
+    }
+    this.arr[0].path = localStorage.mName;
   }
 };
 </script>

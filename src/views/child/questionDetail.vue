@@ -76,7 +76,6 @@ export default {
   background: #fff;
   height: 100%;
   width: 100%;
-  
 }
 .dss {
   width: 100%;

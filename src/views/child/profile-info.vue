@@ -52,7 +52,9 @@
     <el_alert v-if="!showHide" @closeSure="close">
       <span slot="tipInfo">请在手机APP中设置</span>
     </el_alert>
-    <router-view v-h></router-view>
+    <el_showMove>
+      <router-view slot="view"></router-view>
+    </el_showMove>
   </div>
 </template>
 
@@ -84,7 +86,7 @@ export default {
     img() {
       var file = this.$refs.file.files[0];
       var d = new FormData();
-      d.append("img", file);
+      d.append("file", file);
       var params = {
         headers: { "Content-Type": "multipart/form-data" }
       };
@@ -96,13 +98,23 @@ export default {
           params
         )
         .then(data => {
-          console.log(data);
+          this.axios
+            .get("http://elm.cangdu.org/v1/user", {
+              params: {
+                user_id: data.data.user_id
+              }
+            })
+            .then(data => {
+              // console.log(data.data);
+              this.info = data.data;
+            });
         });
     }
   },
   created() {
     if (localStorage.loginInfo) {
       var loginInfo = JSON.parse(localStorage.loginInfo);
+      console.log(loginInfo);
     }
     this.axios
       .get("http://elm.cangdu.org/v1/user", {
@@ -123,12 +135,12 @@ export default {
   font-size: 0.6rem;
 }
 .myInfo {
-  position: absolute;
+  position: fixed;
   width: 100%;
   height: 100vh;
   background-color: #f5f5f5;
   top: 0;
-  left: 20%;
+  left: 0;
   right: 0;
   bottom: 0;
   z-index: 10;

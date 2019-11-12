@@ -1,23 +1,10 @@
 <template>
   <div id="app" v-cloak>
-    <router-view />
+    <transition name="fade2" mode="out-in">
+      <router-view />
+    </transition>
   </div>
 </template>
-
-<script>
-export default {
-  created() {
-    window.onload = function() {
-      document.documentElement.style.fontSize =
-        (document.documentElement.clientWidth / 1080) * 100 + "px";
-      window.onresize = function() {
-        document.documentElement.style.fontSize =
-          (document.documentElement.clientWidth / 1080) * 100 + "px";
-      };
-    };
-  }
-};
-</script>
 
 <style>
 * {
@@ -60,5 +47,13 @@ i {
 }
 .clearfix:after {
   clear: both;
+}
+.fade2-enter-active,
+.fade2-leave-active {
+  transition: opacity 0.2s;
+}
+.fade2-enter,
+.fade2-leave-to {
+  opacity: 0;
 }
 </style>

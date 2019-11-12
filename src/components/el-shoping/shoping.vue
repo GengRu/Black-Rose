@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div class="elw-contrain clearfix">
-      <div class="elw-sention ">
+    <div class="elw-contrain ">
+      <div class="elw-sention clearfix">
         <div class="elw-Timg">
           <slot name="el-Timg"></slot>
         </div>

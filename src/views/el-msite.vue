@@ -21,28 +21,30 @@
       </div>
     </div>
     <div v-for="(i, $index) in list_arr" :key="$index">
-    <router-link :to="{name:'shoplist',params:{geohash:i.latitude,id:i.id}}">
-      <el_hotList>
-      <div slot="el-conImg">
-        <img :src="'http://elm.cangdu.org/img/' + i.image_path" alt />
-      </div>
-      <div slot="el-conName">{{ i.name }}</div>
-      <div slot="el-stater">
-        <el-rate
-          v-model="i.rating"
-          disabled
-          show-score
-          text-color="#ff9900"
-          score-template="{value}"
-          disabled-void-color="#666"
-        ></el-rate>
-      </div>
-      <div slot="el-numBer">月售106单</div>
-      <div slot="el-conRots">¥20起送/{{ i.piecewise_agent_fee.tips }}</div>
-      <div slot="el-conWz">{{ i.distance }}/</div>
-      <div slot="el-conTime">{{ i.order_lead_time }}</div>
-    </el_hotList>
-    </router-link>
+      <router-link
+        :to="{ name: 'shoplist', params: { geohash: i.latitude, id: i.id } }"
+      >
+        <el_hotList>
+          <div slot="el-conImg">
+            <img :src="'http://elm.cangdu.org/img/' + i.image_path" alt />
+          </div>
+          <div slot="el-conName">{{ i.name }}</div>
+          <div slot="el-stater">
+            <el-rate
+              v-model="i.rating"
+              disabled
+              show-score
+              text-color="#ff9900"
+              score-template="{value}"
+              disabled-void-color="#666"
+            ></el-rate>
+          </div>
+          <div slot="el-numBer">月售106单</div>
+          <div slot="el-conRots">¥20起送/{{ i.piecewise_agent_fee.tips }}</div>
+          <div slot="el-conWz">{{ i.distance }}/</div>
+          <div slot="el-conTime">{{ i.order_lead_time }}</div>
+        </el_hotList>
+      </router-link>
     </div>
   </div>
 </template>
@@ -61,11 +63,13 @@ export default {
     };
   },
   created() {
+    this.$loading(true);
     this.axios
       .get(
         "http://elm.cangdu.org/shopping/restaurants?latitude=39.0475&longitude=117.42993&offset=0&limit=20&extras[]=activities&keyword=&restaurant_category_id=&restaurant_category_ids[]=&order_by=&delivery_mode[]="
       )
       .then(res => {
+        this.$loading(false);
         this.list_arr = res.data;
         // console.log(this.list_arr);
       });

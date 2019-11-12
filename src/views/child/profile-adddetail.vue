@@ -31,12 +31,12 @@ export default {};
 
 <style scoped>
 .elt-adddetail {
-  position: absolute;
+  position: fixed;
   width: 100%;
   height: 100vh;
   background-color: #f5f5f5;
   top: 0;
-  left: 20%;
+  left: 0;
   right: 0;
   bottom: 0;
   z-index: 10;

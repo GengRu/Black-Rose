@@ -45,7 +45,6 @@
       @click="entBtn(i.name, i.address)"
     >
       <router-link :to="'/msite/' + i.name">
-      
         <div class="elr-search-tt">{{ i.name }}</div>
         <div class="elr-search-ct">{{ i.address }}</div>
       </router-link>
