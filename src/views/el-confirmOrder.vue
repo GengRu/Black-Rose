@@ -56,12 +56,16 @@
 			confirmOrderBtn(){
 				this.$test({
 					text:'当前环境无法支付，请打开官方APP进行付款'
+				},function(){
+					location.href="#/order"
 				})
 			}
 		},
 		created(){
 			this.$test({
 				text: this.cont
+			},function(){
+				
 			});
 			var timer=setInterval(()=>{
 				if(this.num2 == 0){

@@ -63,7 +63,7 @@ export default {
       )
       .then(res => {
         this.list_arr = res.data;
-        console.log(this.list_arr);
+        // console.log(this.list_arr);
       });
     this.$emit("rating");
   }

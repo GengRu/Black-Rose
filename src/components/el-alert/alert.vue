@@ -22,9 +22,9 @@
 		methods: {
 			btn() {
 				this.type = false
-				// setTimeout(() => {
-				// 	this.cb()
-				// }, 1000)
+				setTimeout(() => {
+					this.cb()
+				}, 200)
 			}
 		}
 	}

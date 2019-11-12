@@ -20,11 +20,13 @@ const points = () => import("../views/el-points.vue");
 // 会员卡
 const vipcard = () => import("../views/el-vipcard.vue");
 // 会员特权
-const vipDescription = () => import("../components/el-vipDescription/vipDescription.vue");
+const vipDescription = () =>
+  import("../components/el-vipDescription/vipDescription.vue");
 // 兑换会员
 const useCart = () => import("../components/el-useCart/useCart.vue");
 // 购买记录
-const invoiceRecord = () => import("../components/el-invoiceRecord/invoiceRecord.vue");
+const invoiceRecord = () =>
+  import("../components/el-invoiceRecord/invoiceRecord.vue");
 // 在线支付
 const confirmOrder = () => import("../views/el-confirmOrder.vue");
 // 服务
@@ -41,8 +43,12 @@ const address = () => import("../views/child/profile-address.vue");
 const newadd = () => import("../views/child/profile-newadd.vue");
 // 选择地址
 const adddetail = () => import("../views/child/profile-adddetail.vue");
-//服务下子页面
+// 服务下子页面
 const questionDetail = () => import("../views/child/questionDetail");
+// 搜索
+const search = () => import("../views/el-search.vue");
+// 订单
+const order = () => import("../views/el-order.vue");
 
 Vue.use(VueRouter);
 
@@ -143,26 +149,26 @@ const routes = [
     name: "vipcard",
     // 会员卡
     component: vipcard,
-	children:[
-	  {
-	    path: 'vipDescription',
-	    name: 'vipDescription',
-		//会员说明
-	    component:vipDescription
-	  },
-	  {
-	    path: 'useCart',
-	    name: 'useCart',
-		//兑换会员
-	    component:useCart
-	  },
-	  {
-	    path: 'invoiceRecord',
-	    name: 'invoiceRecord',
-	  		//购买记录
-	    component:invoiceRecord
-	  }
-	]
+    children: [
+      {
+        path: "vipDescription",
+        name: "vipDescription",
+        //会员说明
+        component: vipDescription
+      },
+      {
+        path: "useCart",
+        name: "useCart",
+        //兑换会员
+        component: useCart
+      },
+      {
+        path: "invoiceRecord",
+        name: "invoiceRecord",
+        //购买记录
+        component: invoiceRecord
+      }
+    ]
   },
   {
     path: "/confirmOrder",
@@ -188,6 +194,18 @@ const routes = [
     name: "download",
     // 下载
     component: download
+  },
+  {
+    path: "/search",
+    name: "search",
+    // 下载
+    component: search
+  },
+  {
+    path: "/order",
+    name: "order",
+    // 订单
+    component: order
   }
 ];
 
