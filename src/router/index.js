@@ -55,6 +55,8 @@ const shoplist = () => import("../views/shoplist.vue");
 const search = () => import("../views/el-search.vue");
 // 订单
 const order = () => import("../views/el-order.vue");
+// 积分商城
+const integral = () => import("../views/el-integral.vue");
 
 Vue.use(VueRouter);
 
@@ -92,6 +94,12 @@ const routes = [
     name: "msite",
     // 商品页
     component: msite
+  },
+  {
+    path: "/integral",
+    name: "integral",
+    // 积分商城
+    component: integral
   },
   {
     path: "/profile",
