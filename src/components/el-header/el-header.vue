@@ -11,7 +11,10 @@
           </div>
         </div>
         <div class="elw-conitem elw-rter">
-          <slot name="elw-right"></slot>
+          <slot name="elw-right" v-if="type == false"></slot>
+		  <slot name="elr-right" v-if="type == true">
+			  <span class="el-icon-user" @click="tiao"></span>
+		  </slot>
         </div>
       </div>
     </div>
@@ -19,7 +22,26 @@
 </template>
 
 <script>
-export default {};
+export default {
+	data(){
+		return{
+			type: false
+		}
+	},
+	created(){
+		if(JSON.parse(localStorage.loginInfo).username != ''){
+			this.type = true
+		}
+		if(this.$route.path == '/profile'){
+			this.type = false
+		}
+	},
+	methods:{
+		tiao(){
+			location.href="#/profile"
+		}
+	}
+};
 </script>
 
 <style scoped>
