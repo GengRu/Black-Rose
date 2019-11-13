@@ -345,4 +345,10 @@ export default {
   flex: 1;
   text-align: center;
 }
+
+.elr-active-color{
+	color: #3190e8;
+	border-bottom: 0.1rem solid #3190e8;
+	padding-bottom: 0.15rem;
+}
 </style>
