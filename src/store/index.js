@@ -7,7 +7,7 @@ export default new Vuex.Store({
   state: {
     nerr: [],
     add: [],
-    t:0,
+    t: 0
   },
   mutations: {
     Getpara(state, sin) {

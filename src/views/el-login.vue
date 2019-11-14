@@ -97,9 +97,9 @@ export default {
             if (!data.data.message) {
               // 判断路由模式跳转
               if (this.$router.mode == "hash") {
-                location.href = "#/profile";
+                location.href = "#/home";
               } else {
-                location.href = "/profile";
+                location.href = "/home";
               }
               localStorage.loginInfo = JSON.stringify(data.data);
             } else {

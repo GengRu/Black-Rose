@@ -1,26 +1,35 @@
 <template>
-  <div class="elt-listItem">
-    <div class="elt-listItem_left">
-      <div class="elt-lTop">
-        <span>￥</span>
-        <span v-for="(i, $i) in newAmount" :key="$i"> {{ i }}</span>
+  <div>
+    <div class="elt-listItem">
+      <div class="elt-listItem_left">
+        <div class="elt-lTop">
+          <span>￥</span>
+          <span v-for="(i, $i) in newAmount" :key="$i"> {{ i }}</span>
+        </div>
+        <div class="elt-lbottom">
+          {{ json.description_map.sum_condition }}
+        </div>
       </div>
-      <div class="elt-lbottom">
-        {{ json.description_map.sum_condition }}
+      <div class="elt-listItem_center">
+        <div class="elt-listItem_center-name">
+          {{ json.name }}
+        </div>
+        <div>{{ json.end_date }}到期</div>
+        <div class="elt-listItem_center-phone">
+          {{ json.description_map.phone }}
+        </div>
+      </div>
+      <div class="elt-listItem_right">
+        {{
+          json.description_map.validity_delta.length > 4 ? "已过期" : "剩3日"
+        }}
       </div>
     </div>
-    <div class="elt-listItem_center">
-      <div class="elt-listItem_center-name">
-        {{ json.name }}
-      </div>
-      <div>{{ json.end_date }}到期</div>
-      <div class="elt-listItem_center-phone">
-        {{ json.description_map.phone }}
-      </div>
-    </div>
-    <div class="elt-listItem_right">
-      {{ json.description_map.validity_delta }}
-    </div>
+    <footer class="elt-list_item_footer" v-if="json.limit_map">
+      <p>
+        {{ json.limit_map.restaurant_flavor_ids }}
+      </p>
+    </footer>
   </div>
 </template>
 
@@ -78,5 +87,18 @@ export default {
 .elt-listItem_right {
   font-size: 0.5rem;
   color: red;
+}
+.elt-list_item_footer {
+  margin-top: -0.5rem;
+  background-color: #f9f9f9;
+  padding: 0.4rem;
+  border-bottom-left-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+}
+.elt-list_item_footer p {
+  list-style-type: disc;
+  font-size: 0.4rem;
+  color: #999;
+  margin-left: 0.4rem;
 }
 </style>

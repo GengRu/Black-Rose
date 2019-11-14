@@ -1,5 +1,8 @@
 <template>
   <div>
+    <div style="height:50px;position:fixed;top:0;left:0;width:100%;z-index:999999;">
+            <span @click="$router.back()" class="el-icon-arrow-left" style="font-size:20px;color:white;margin-left:20px;"></span>
+        </div>
     <div class="elw-bag">
       <div class="elw-box">
         <div class="elw-bgimg">
@@ -18,10 +21,18 @@
         <div class="elw-content">
           <div class="elw-Cheader" ref="he">
             <div class="elw-Csl">
-              <span @click="type = true" :class="type == true ? 'elr-active-color' : ''">商品</span>
+              <span
+                @click="type = true"
+                :class="type == true ? 'elr-active-color' : ''"
+                >商品</span
+              >
             </div>
             <div class="elw-Csl">
-              <span @click="type = false" :class="type == false ? 'elr-active-color' : ''">评价</span>
+              <span
+                @click="type = false"
+                :class="type == false ? 'elr-active-color' : ''"
+                >评价</span
+              >
             </div>
           </div>
           <div class="elw-Cpont clearfix" v-show="type">
@@ -79,13 +90,13 @@
             <p class="el-icon-shopping-cart-2"></p>
           </div>
           <div class="elw-myom">
-            <p>￥{{addPrice}}.00</p>
+            <p>￥{{ addPrice }}.00</p>
             <p class="elw-fSz">配送费￥5</p>
           </div>
         </div>
         <div class="elw-Right">
-          <p v-show="my<20">还差￥20起送</p>
-          <p v-show="my>=20" class="elw-bgg">去结算</p>
+          <p v-show="my < 20">还差￥20起送</p>
+          <p v-show="my >= 20" class="elw-bgg">去结算</p>
         </div>
       </div>
     </div>
@@ -96,9 +107,9 @@
 import shopings from "../components/el-shoping/shoping.vue";
 import pingjia from "../components/el-pingjia/pingjia.vue";
 import eladd from "../components/el-add/el-add";
-import {mapState,mapGetters} from 'vuex'
+import { mapState, mapGetters } from "vuex";
 export default {
-  components: { shopings, pingjia,eladd},
+  components: { shopings, pingjia, eladd },
   data() {
     return {
       data: "",
@@ -106,8 +117,8 @@ export default {
       index: 0,
       boxs: [],
       type: true,
-      my:0,
-      sp: [],
+      my: 0,
+      sp: []
     };
   },
   created() {
@@ -132,7 +143,6 @@ export default {
         this.larr = data.data;
         console.log(data.data)
       });
-      
   },
   methods: {
     a1(ev) {
@@ -140,7 +150,7 @@ export default {
       // ev.target.style.transtion='.35s';
       let head = this.$refs.he.offsetHeight;
       let fheader = this.$refs.spop.offsetHeight;
-      let aser = head + fheader+1;
+      let aser = head + fheader + 1;
       let ent = ev.target.scrollTop;
       var arr = [];
 
@@ -151,7 +161,7 @@ export default {
         nerr.push(arr[i].offsetTop);
         var ser = nerr[i] - aser;
         // console.log(Math.abs(ser),Math.floor(ent))
-        if (Math.abs(ser) <= Math.floor(ent) ) {
+        if (Math.abs(ser) <= Math.floor(ent)) {
           this.index = i;
         }
       }
@@ -165,29 +175,28 @@ export default {
       }
     }
   },
-  watch:{
-        'larr':{
-            handler(end){
-               this.sp=[];
-                end.forEach(el=>{
-                    el.foods.forEach(ele=>{
-                        if(ele.__v){
-                           this.sp.push(ele)
-                        }
-                    })
-                })
-                // 同步到vuex里
-                this.$store.commit('Getadd',this.sp)
-                this.my=this.addPrice
-            },
-            deep:true
-        }
-        
-    },
-    computed: {
-        ...mapState(['add']),
-        ...mapGetters(['addPrice'])
-    },
+  watch: {
+    larr: {
+      handler(end) {
+        this.sp = [];
+        end.forEach(el => {
+          el.foods.forEach(ele => {
+            if (ele.__v) {
+              this.sp.push(ele);
+            }
+          });
+        });
+        // 同步到vuex里
+        this.$store.commit("Getadd", this.sp);
+        this.my = this.addPrice;
+      },
+      deep: true
+    }
+  },
+  computed: {
+    ...mapState(["add"]),
+    ...mapGetters(["addPrice"])
+  }
 };
 </script>
 

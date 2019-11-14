@@ -1,10 +1,8 @@
 <template>
   <div>
-      <span
-        class="el-icon-remove-outline"
-        @click="rout()" v-if="val"></span>
-      <span class="elw-Mvalue">{{val}}</span>
-      <span class="el-icon-circle-plus-outline" @click="pout()"></span>
+    <span class="el-icon-remove-outline" @click="rout()" v-if="val"></span>
+    <span class="elw-Mvalue">{{ val }}</span>
+    <span class="el-icon-circle-plus-outline" @click="pout()"></span>
   </div>
 </template>
 
@@ -17,7 +15,7 @@ export default {
         return this.value;
       },
       set(v) {
-           this.$emit('input',v)
+        this.$emit("input", v);
       }
     }
   },
