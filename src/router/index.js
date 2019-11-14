@@ -49,12 +49,14 @@ const newadd = () => import("../views/child/profile-newadd.vue");
 const adddetail = () => import("../views/child/profile-adddetail.vue");
 // 服务下子页面
 const questionDetail = () => import("../views/child/questionDetail");
-//商家页
+// 商家页
 const shoplist = () => import("../views/shoplist.vue");
 // 搜索
 const search = () => import("../views/el-search.vue");
 // 订单
 const order = () => import("../views/el-order.vue");
+// 食物 food
+const food = () => import("../views/el-food.vue");
 
 Vue.use(VueRouter);
 
@@ -231,6 +233,12 @@ const routes = [
     name: "order",
     // 订单
     component: order
+  },
+  {
+    path: "/food/:elrtitle",
+    name: "food",
+    // 食物
+    component: food
   }
 ];
 
