@@ -99,9 +99,10 @@
 <script>
 import el_Header from "./../components/el-header/el-header";
 import el_Footer from "../components/el-footer/el-footer";
+import el_choose from "../components/chooseAddress/el-chooseAddress";
 import Vue from "vue";
 export default {
-  components: { el_Header, el_Footer },
+  components: {el_Header, el_Footer},
   data() {
     return {
       haveUser: false,

@@ -59,12 +59,14 @@ const newadd = () => import("../views/child/profile-newadd.vue");
 const adddetail = () => import("../views/child/profile-adddetail.vue");
 // 服务下子页面
 const questionDetail = () => import("../views/child/questionDetail");
-//商家页
+// 商家页
 const shoplist = () => import("../views/shoplist.vue");
 // 搜索
 const search = () => import("../views/el-search.vue");
 // 订单
 const order = () => import("../views/el-order.vue");
+// 食物 food
+const food = () => import("../views/el-food.vue");
 // 积分商城
 const integral = () => import("../views/el-integral.vue");
 //确认订单
@@ -75,6 +77,9 @@ const chooseAdd = () => import("../views/child/el-chooseAdd.vue");
 const remark = () => import("../views/child/el-orderSure-remark.vue");
 //发票抬头
 const invoice = () => import("../views/child/el-orderSure-invoice.vue");
+//商品详情
+const Gxq = () => import("../views/el-Gxq.vue");
+
 Vue.use(VueRouter);
 
 const routes = [
@@ -170,6 +175,11 @@ const routes = [
         ]
       }
     ]
+  },
+  {
+    path: "/Gxq/:name/:img/:num/:my/:pl/:zhan",
+    name: "Gxq",
+    component: Gxq
   },
   {
     path: "/balance",
@@ -332,6 +342,12 @@ const routes = [
         component: invoice
       }
     ]
+  },
+  {
+    path: "/food/:elrtitle",
+    name: "food",
+    // 食物
+    component: food
   }
 ];
 

@@ -1,5 +1,14 @@
 <template>
   <div>
+    <div
+      style="height:50px;position:fixed;top:0;left:0;width:100%;z-index:999999;"
+    >
+      <span
+        @click="$router.back()"
+        class="el-icon-arrow-left"
+        style="font-size:20px;color:white;margin-left:20px;"
+      ></span>
+    </div>
     <div class="elw-bag">
       <div class="elw-box">
         <div class="elw-bgimg">
@@ -51,10 +60,24 @@
                 </div>
                 <div class="elw-modelsk" v-for="(s, $sn) in a.foods" :key="$sn">
                   <div class="elw-modle">
-                    <img
-                      :src="'http://elm.cangdu.org/img/' + s.image_path"
-                      alt
-                    />
+                    <router-link
+                      :to="{
+                        name: 'Gxq',
+                        params: {
+                          name: s.name,
+                          img: s.image_path,
+                          num: s.rating,
+                          my: s.specfoods[0].price,
+                          pl: s.tips,
+                          zhan: s.satisfy_rate
+                        }
+                      }"
+                    >
+                      <img
+                        :src="'http://elm.cangdu.org/img/' + s.image_path"
+                        alt
+                      />
+                    </router-link>
                   </div>
                   <div class="elw-modre clearfix">
                     <div class="elw-Mname">{{ s.name }}</div>
@@ -67,10 +90,7 @@
                       ￥{{ s.specfoods[0].price }}
                       <span v-if="s.specfoods.length >= 2">起</span>
                     </div>
-                    <div class="elw-guige" v-if="s.specfoods.length >= 2">
-                      <span class="elw-Mreg">选规格</span>
-                    </div>
-                    <div class="elw-jiajian" v-if="s.specfoods.length <= 1">
+                    <div class="elw-jiajian">
                       <eladd v-model="s.__v"></eladd>
                     </div>
                   </div>
@@ -149,6 +169,7 @@ export default {
       .then(data => {
         this.$loading(false);
         this.larr = data.data;
+        console.log(data.data);
       });
   },
   methods: {
@@ -353,10 +374,10 @@ export default {
   height: 1.4rem;
 }
 .elw-modelsk {
-  background: #fff;
   height: 3.86rem;
   padding-top: 0.4rem;
   padding-left: 0.3rem;
+  padding-right: 0.2rem;
 }
 .elw-cpomin {
   color: "#949494";
@@ -385,8 +406,9 @@ export default {
 }
 .elw-Cpore {
   float: left;
-  width: 68%;
+  width: 70%;
   height: 100%;
+  background: #fff;
   overflow-y: auto;
 }
 .elw-Cpoles {
