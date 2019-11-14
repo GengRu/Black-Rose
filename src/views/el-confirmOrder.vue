@@ -7,9 +7,7 @@
       <div slot="elw-cont">
         在线支付
       </div>
-      <div slot="elw-right">
-        <router-link to="./login"></router-link>
-      </div>
+      <div slot="elr-right"></div>
     </el_Header>
 
     <div class="confirmOrder-elr-cont">

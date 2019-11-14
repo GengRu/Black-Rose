@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="elt-benefit">
     <el_Header>
       <div slot="elw-Left">
         <span @click="$router.back()" class="el-icon-arrow-left"></span>
@@ -7,6 +7,7 @@
       <div slot="elw-cont">
         <span class="elg-title">我的优惠</span>
       </div>
+      <div slot="elr-right"></div>
     </el_Header>
     <div class="elt-category">
       <div @click="showHide = true">
@@ -29,27 +30,30 @@
               height="24"
               width="24"
             />
-            <span class="elt-hongbao_detail">红包说明</span>
+            <router-link to="/benefit/hbDescrip">
+              <span class="elt-hongbao_detail">红包说明</span>
+            </router-link>
           </div>
         </div>
         <!--红包列表-->
-        <div class="elt-hongbaoList">
+        <div>
           <div class="elt-hongbaoBox" v-for="(i, $i) in hongbaoList" :key="$i">
             <el_hongbao :item="i"></el_hongbao>
-            <footer v-if="$i == 2" class="elt-list_item_footer">
-              <p>
-                限品类：快餐便当、特色菜系、小吃夜宵、甜品饮品、异国料理
-              </p>
-            </footer>
           </div>
         </div>
       </div>
       <div class="elt-check_history">
-        查看历史红包<span class="el-icon-arrow-right"></span>
+        <router-link to="/benefit/history">
+          查看历史红包<span class="el-icon-arrow-right"> </span>
+        </router-link>
       </div>
       <div class="elt-hongbaoFooter">
-        <div>兑换红包</div>
-        <div>推荐有奖</div>
+        <router-link to="/benefit/exchange">
+          <div>兑换红包</div>
+        </router-link>
+        <router-link to="/benefit/commend">
+          <div>推荐有奖</div>
+        </router-link>
       </div>
     </div>
     <div v-show="!showHide">
@@ -61,7 +65,9 @@
             height="24"
             width="24"
           />
-          <span class="elt-hongbao_detail">商家代金券说明</span>
+          <router-link to="/benefit/coupon">
+            <span class="elt-hongbao_detail">商家代金券说明</span>
+          </router-link>
         </div>
       </div>
       <div class="elt-cont">
@@ -77,6 +83,9 @@
         </router-link>
       </div>
     </div>
+    <el_showMove>
+      <router-view slot="view"></router-view>
+    </el_showMove>
   </div>
 </template>
 
@@ -101,7 +110,7 @@ export default {
           "/hongbaos?limit=20&offset=0"
       )
       .then(data => {
-        console.log(data.data);
+        // console.log(data.data);
         this.hongbaoList = data.data;
       });
   }
@@ -152,24 +161,9 @@ export default {
 .elt-hongbao_detail {
   color: #3190e8;
 }
-.elt-list_item_footer {
-  margin-top: -0.5rem;
-  background-color: #f9f9f9;
-  padding: 0.4rem;
-  border-bottom-left-radius: 0.25rem;
-  border-bottom-right-radius: 0.25rem;
-}
-.elt-list_item_footer p {
-  list-style-type: disc;
-  font-size: 0.4rem;
-  color: #999;
-  margin-left: 0.4rem;
-}
+
 .elt-hongbaoBox {
-  background: #fff
-    url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAIBAMAAAALs8LeAAAABGdBT…RBVAjXY5gJBwzEMScHNXpCmQIMDMwQ5jQGIKgEMyeBmJIAtqcnWdDMwKsAAAAASUVORK5CYII=")
-    repeat-x;
-  background-size: 0.5rem 0.2rem;
+  background: #fff;
   margin-bottom: 0.5rem;
   border-radius: 0.25rem;
   font-size: 0.4rem;
@@ -189,6 +183,11 @@ export default {
   font-size: 0.6rem;
   line-height: 1.5rem;
   background-color: #fff;
+}
+
+.elt-hongbaoFooter a,
+.elt-check_history a {
+  color: #333;
 }
 .elt-right {
   display: flex;

@@ -7,6 +7,7 @@
       <div slot="elw-cont">
         <span class="elg-title">积分说明</span>
       </div>
+      <div slot="elr-right"></div>
     </el_Header>
     <div class="elt-haveBox">
       <div v-for="(i, $i) in arr" :key="$i">

@@ -57,6 +57,14 @@ export default {
   float: left;
   width: 50%;
 }
+.elt-yan-l input {
+  width: 80%;
+  outline: none;
+  border: none;
+  padding: 0.2rem 0.56rem;
+  font-size: 0.5rem;
+  border-radius: 0.1rem;
+}
 .elt-changeyan {
   overflow: hidden;
 }

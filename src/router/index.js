@@ -14,13 +14,23 @@ const profile = () => import("../views/el-profile.vue");
 // 我的余额
 const balance = () => import("../views/el-balance.vue");
 // 我的余额下一级
-const balance_detail = () => import("../views/el-balance_detail.vue");
+const balance_detail = () => import("../views/child/el-balance_detail.vue");
 // 我的优惠
 const benefit = () => import("../views/el-benefit.vue");
+// 我的优惠下一级
+const hbDescrip = () => import("../views/child/el-benefit-hbDescription.vue");
+// 我的优惠下一级
+const coupon = () => import("../views/child/el-benefit-coupon.vue");
+// 我的优惠下一级
+const exchange = () => import("../views/child/el-benefit-exchange.vue");
+// 我的优惠下一级
+const history = () => import("../views/child/el-benefit-history.vue");
+// 我的优惠下一级
+const commend = () => import("../views/child/el-benefit-commend.vue");
 // 我的积分
 const points = () => import("../views/el-points.vue");
 // 我的积分
-const points_detail = () => import("../views/el-points_detail.vue");
+const points_detail = () => import("../views/child/el-points_detail.vue");
 // 会员卡
 const vipcard = () => import("../views/el-vipcard.vue");
 // 会员特权
@@ -79,7 +89,16 @@ const routes = [
     path: "/login",
     name: "login",
     // 登录
-    component: login
+    component: login,
+    beforeEnter: (to, from, next) => {
+      if (to.path == "/login") {
+        if (localStorage.loginInfo == "") {
+          next();
+        } else {
+          next("/profile");
+        }
+      }
+    }
   },
   {
     path: "/forget",
@@ -149,7 +168,34 @@ const routes = [
     path: "/benefit",
     name: "benefit",
     // 我的优惠
-    component: benefit
+    component: benefit,
+    children: [
+      {
+        path: "hbDescrip",
+        name: "hbDescrip",
+        component: hbDescrip
+      },
+      {
+        path: "coupon",
+        name: "coupon",
+        component: coupon
+      },
+      {
+        path: "exchange",
+        name: "exchange",
+        component: exchange
+      },
+      {
+        path: "commend",
+        name: "commend",
+        component: commend
+      },
+      {
+        path: "history",
+        name: "history",
+        component: history
+      }
+    ]
   },
   {
     path: "/points",
