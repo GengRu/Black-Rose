@@ -29,8 +29,8 @@
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 110px;
-  height: 110px;
+  width: 2.6rem;
+  height: 2.6rem;
   border-radius: 50%;
   overflow: hidden;
   background-color: rgba(0, 0, 0, 0.5);
@@ -40,7 +40,7 @@
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 300px;
-  height: 200px;
+  width: 6rem;
+  height: 4.5rem;
 }
 </style>

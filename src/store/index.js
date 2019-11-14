@@ -6,8 +6,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     nerr: [],
-    add: [],
-    t: 0
+    add: []
   },
   mutations: {
     Getpara(state, sin) {
@@ -29,7 +28,7 @@ export default new Vuex.Store({
         t += el.specfoods[0].price * (el.__v || 1);
         console.log(el);
       });
-      console.log(t);
+      // console.log(t);
       return t;
     }
   }

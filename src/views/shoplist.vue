@@ -96,7 +96,9 @@
         </div>
         <div class="elw-Right">
           <p v-show="my < 20">还差￥20起送</p>
-          <p v-show="my >= 20" class="elw-bgg">去结算</p>
+          <router-link to="/sureOrder">
+            <p v-show="my >= 20" class="elw-bgg">去结算</p>
+          </router-link>
         </div>
       </div>
     </div>
@@ -122,6 +124,12 @@ export default {
     };
   },
   created() {
+    var a = decodeURI(decodeURI(this.$route.path)).split("/");
+    localStorage.shop = JSON.stringify({
+      name: a[4],
+      img: a[5]
+    });
+
     this.axios
       .get(
         "https://elm.cangdu.org/shopping/restaurant/" +

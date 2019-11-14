@@ -67,7 +67,14 @@ const search = () => import("../views/el-search.vue");
 const order = () => import("../views/el-order.vue");
 // 积分商城
 const integral = () => import("../views/el-integral.vue");
-
+//确认订单
+const sureOrder = () => import("../views/el-sureOrder.vue");
+//选择地址
+const chooseAdd = () => import("../views/child/el-chooseAdd.vue");
+//订单备注
+const remark = () => import("../views/child/el-orderSure-remark.vue");
+//发票抬头
+const invoice = () => import("../views/child/el-orderSure-invoice.vue");
 Vue.use(VueRouter);
 
 const routes = [
@@ -129,26 +136,31 @@ const routes = [
       {
         path: "info",
         name: "info",
+        // 我的信息
         component: info,
         children: [
           {
             path: "setusername",
             name: "setusername",
+            // 修改名字
             component: setusername
           },
           {
             path: "address",
             name: "address",
+            // 添加地址
             component: address,
             children: [
               {
                 path: "newadd",
                 name: "newadd",
+                // 新地址
                 component: newadd,
                 children: [
                   {
                     path: "adddetail",
                     name: "adddetail",
+                    // 选择地址
                     component: adddetail
                   }
                 ]
@@ -168,6 +180,7 @@ const routes = [
       {
         path: "balance_detail",
         name: "balance_detail",
+        // 余额说明
         component: balance_detail
       }
     ]
@@ -181,26 +194,31 @@ const routes = [
       {
         path: "hbDescrip",
         name: "hbDescrip",
+        // 优惠红包
         component: hbDescrip
       },
       {
         path: "coupon",
         name: "coupon",
+        // 代金券说明
         component: coupon
       },
       {
         path: "exchange",
         name: "exchange",
+        // 兑换红包
         component: exchange
       },
       {
         path: "commend",
         name: "commend",
+        // 推荐有奖
         component: commend
       },
       {
         path: "history",
         name: "history",
+        // 历史红包
         component: history
       }
     ]
@@ -214,6 +232,7 @@ const routes = [
       {
         path: "points_detail",
         name: "points_detail",
+        // 积分说明
         component: points_detail
       }
     ]
@@ -259,6 +278,7 @@ const routes = [
       {
         path: "questionDetail",
         name: "questionDetail",
+        // 问题和说明
         component: questionDetail
       }
     ]
@@ -270,8 +290,9 @@ const routes = [
     component: download
   },
   {
-    path: "/shoplist/:geohash/:id",
+    path: "/shoplist/:geohash/:id/:name/:img",
     name: "shoplist",
+    // 商品页
     component: shoplist
   },
   {
@@ -285,6 +306,32 @@ const routes = [
     name: "order",
     // 订单
     component: order
+  },
+  {
+    path: "/sureOrder",
+    name: "sureOrder",
+    // 确认订单
+    component: sureOrder,
+    children: [
+      {
+        path: "chooseAdd",
+        name: "chooseAdd",
+        // 订单地址
+        component: chooseAdd
+      },
+      {
+        path: "remark",
+        name: "remark",
+        // 备注
+        component: remark
+      },
+      {
+        path: "invoice",
+        name: "invoice",
+        // 发票
+        component: invoice
+      }
+    ]
   }
 ];
 
