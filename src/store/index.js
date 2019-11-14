@@ -5,7 +5,9 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    nerr: []
+    nerr: [],
+    add: [],
+    t:0,
   },
   mutations: {
     Getpara(state, sin) {
@@ -13,8 +15,22 @@ export default new Vuex.Store({
     },
     setclear(state, ins) {
       state.nerr = ins;
+    },
+    Getadd(state, adds) {
+      state.add = adds;
     }
   },
   actions: {},
-  modules: {}
+  modules: {},
+  getters: {
+    addPrice(state) {
+      var t = 0;
+      state.add.forEach(el => {
+        t += el.specfoods[0].price * (el.__v || 1);
+        console.log(el);
+      });
+      console.log(t);
+      return t;
+    }
+  }
 });
