@@ -139,7 +139,7 @@ export default {
       // ev.target.style.transtion='.35s';
       let head = this.$refs.he.offsetHeight;
       let fheader = this.$refs.spop.offsetHeight;
-      let aser = head + fheader;
+      let aser = head + fheader+1;
       let ent = ev.target.scrollTop;
       var arr = [];
 
