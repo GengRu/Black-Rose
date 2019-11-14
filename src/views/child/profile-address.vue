@@ -7,7 +7,7 @@
       <div slot="elw-cont">
         <span class="elg-title">编辑地址</span>
       </div>
-      <div slot="elw-right" @click="type = !type">
+      <div slot="elr-right" @click="type = !type">
         {{ type ? "编辑" : "完成" }}
       </div>
     </el_Header>

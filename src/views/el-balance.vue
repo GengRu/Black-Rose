@@ -8,6 +8,7 @@
         <div slot="elw-cont">
           <span class="elg-title">我的余额</span>
         </div>
+        <div slot="elr-right"></div>
       </el_Header>
       <el_CurrentShow>
         <span slot="nowHave">当前余额</span>

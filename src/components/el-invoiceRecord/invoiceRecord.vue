@@ -7,9 +7,7 @@
       <div slot="elw-cont">
         购买记录
       </div>
-      <div slot="elw-right">
-        <router-link to="./login"></router-link>
-      </div>
+      <div slot="elr-right"></div>
     </el_Header>
 
     <div class="elr-cont">

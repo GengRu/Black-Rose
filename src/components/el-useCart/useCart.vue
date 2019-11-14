@@ -7,9 +7,7 @@
       <div slot="elw-cont">
         兑换会员
       </div>
-      <div slot="elw-right">
-        <router-link to="./login"></router-link>
-      </div>
+      <div slot="elr-right"></div>
     </el_Header>
 
     <div class="elr-title">成功兑换后将关联到当前帐号： <span>tb659</span></div>

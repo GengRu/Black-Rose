@@ -7,6 +7,7 @@
       <div slot="elw-cont">
         <span class="elg-title">账户信息</span>
       </div>
+      <div slot="elr-right"></div>
     </el_Header>
     <div class="elt-infoBox">
       <div class="elt-imgBox">
@@ -48,10 +49,15 @@
         </el_info>
       </router-link>
     </div>
-    <div class="elt-exitlogin">退出登录</div>
+    <div class="elt-exitlogin" @click="loginUp">退出登录</div>
     <el_alert v-if="!showHide" @closeSure="close">
       <span slot="tipInfo">请在手机APP中设置</span>
     </el_alert>
+    <el_coverpart
+      v-if="!showHide1"
+      @closeConfirm="close1"
+      @loginupSure="close1"
+    ></el_coverpart>
     <el_showMove>
       <router-view slot="view"></router-view>
     </el_showMove>
@@ -62,25 +68,43 @@
 import el_Header from "../../components/el-header/el-header";
 import el_info from "../../components/el-login/el-info";
 import el_alert from "../../components/el-login/el-alert";
+import el_coverpart from "../../components/el-coverpart/el-covoverpart";
 export default {
   components: {
     el_info,
     el_Header,
-    el_alert
+    el_alert,
+    el_coverpart
   },
   data() {
     return {
       info: "",
-      showHide: true
+      showHide: true,
+      showHide1: true
     };
   },
   methods: {
+    loginUp() {
+      this.showHide1 = false;
+    },
+    // 接收关闭弹窗
+    close1(a) {
+      if (a) {
+        this.showHide1 = true;
+      } else {
+        this.showHide1 = true;
+        localStorage.loginInfo = "";
+        // console.log(localStorage);
+        // console.log(this.$route.path);
+        location.href = "http://localhost:8080/#/profile";
+      }
+    },
     // 接收关闭弹窗
     close(a) {
       this.showHide = true;
     },
     dloadApp() {
-      console.log(1);
+      // console.log(1);
       this.showHide = false;
     },
     img() {
@@ -90,7 +114,7 @@ export default {
       var params = {
         headers: { "Content-Type": "multipart/form-data" }
       };
-      console.log(d);
+      // console.log(d);
       this.axios
         .post(
           "http://elm.cangdu.org/eus/v1/users/" + this.info.user_id + "/avatar",
@@ -114,7 +138,7 @@ export default {
   created() {
     if (localStorage.loginInfo) {
       var loginInfo = JSON.parse(localStorage.loginInfo);
-      console.log(loginInfo);
+      // console.log(loginInfo);
     }
     this.axios
       .get("http://elm.cangdu.org/v1/user", {
