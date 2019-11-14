@@ -1,5 +1,8 @@
 <template>
   <div>
+    <div style="height:50px;position:fixed;top:0;left:0;width:100%;z-index:999999;">
+            <span @click="$router.back()" class="el-icon-arrow-left" style="font-size:20px;color:white;margin-left:20px;"></span>
+        </div>
     <div class="elw-bag">
       <div class="elw-box">
         <div class="elw-bgimg">
@@ -51,29 +54,24 @@
                 </div>
                 <div class="elw-modelsk" v-for="(s, $sn) in a.foods" :key="$sn">
                   <div class="elw-modle">
-                    <img
-                      :src="'http://elm.cangdu.org/img/' + s.image_path"
-                      alt
-                    />
+                    <router-link :to="{name:'Gxq',params:{name:s.name,img:s.image_path,num:s.rating,my:s.specfoods[0].price,pl:s.tips,zhan:s.satisfy_rate}}">
+                    <img :src="'http://elm.cangdu.org/img/' + s.image_path" alt />
+                    </router-link>
                   </div>
                   <div class="elw-modre clearfix">
                     <div class="elw-Mname">{{ s.name }}</div>
                     <div class="elw-Mmin">{{ s.description }}</div>
                     <div class="elw-Msc">{{ s.tips }}</div>
                     <div class="elw-MIcon" v-if="s.activity != null">
+                      
                       <span class="elw-Micon">{{ s.activity.image_text }}</span>
                     </div>
                     <div class="elw-Mparc" v-if="s.specfoods.length != 0">
                       ￥{{ s.specfoods[0].price }}
                       <span v-if="s.specfoods.length >= 2">起</span>
                     </div>
-                    <div class="elw-guige" v-if="s.specfoods.length >= 2">
-                      <span class="elw-Mreg">选规格</span>
-                    </div>
-                    <div class="elw-jiajian" v-if="s.specfoods.length <= 1">
-                      <span class="el-icon-remove-outline"></span>
-                      <span class="elw-Mvalue">1</span>
-                      <span class="el-icon-circle-plus-outline"></span>
+                    <div class="elw-jiajian" >
+                         <eladd v-model="s.__v"></eladd>
                     </div>
                   </div>
                 </div>
@@ -85,22 +83,42 @@
         </div>
       </div>
     </div>
-    <div></div>
+    <div class="elw-footer">
+      <div class="elw-flex">
+        <div class="elw-Fla clearfix">
+          <div class="elw-bor">
+            <p class="el-icon-shopping-cart-2"></p>
+          </div>
+          <div class="elw-myom">
+            <p>￥{{ addPrice }}.00</p>
+            <p class="elw-fSz">配送费￥5</p>
+          </div>
+        </div>
+        <div class="elw-Right">
+          <p v-show="my < 20">还差￥20起送</p>
+          <p v-show="my >= 20" class="elw-bgg">去结算</p>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 import shopings from "../components/el-shoping/shoping.vue";
 import pingjia from "../components/el-pingjia/pingjia.vue";
+import eladd from "../components/el-add/el-add";
+import { mapState, mapGetters } from "vuex";
 export default {
-  components: { shopings, pingjia },
+  components: { shopings, pingjia, eladd },
   data() {
     return {
       data: "",
       larr: "",
       index: 0,
       boxs: [],
-      type: true
+      type: true,
+      my: 0,
+      sp: []
     };
   },
   created() {
@@ -123,6 +141,7 @@ export default {
       .then(data => {
         this.$loading(false);
         this.larr = data.data;
+        console.log(data.data)
       });
   },
   methods: {
@@ -134,13 +153,15 @@ export default {
       let aser = head + fheader + 1;
       let ent = ev.target.scrollTop;
       var arr = [];
+
       arr = this.$refs.cpo;
       // console.log(arr)
       var nerr = [];
       for (var i = 0; i < arr.length; i++) {
         nerr.push(arr[i].offsetTop);
         var ser = nerr[i] - aser;
-        if (ser <= ent && !this.isClick) {
+        // console.log(Math.abs(ser),Math.floor(ent))
+        if (Math.abs(ser) <= Math.floor(ent)) {
           this.index = i;
         }
       }
@@ -154,7 +175,28 @@ export default {
       }
     }
   },
-  mounted() {}
+  watch: {
+    larr: {
+      handler(end) {
+        this.sp = [];
+        end.forEach(el => {
+          el.foods.forEach(ele => {
+            if (ele.__v) {
+              this.sp.push(ele);
+            }
+          });
+        });
+        // 同步到vuex里
+        this.$store.commit("Getadd", this.sp);
+        this.my = this.addPrice;
+      },
+      deep: true
+    }
+  },
+  computed: {
+    ...mapState(["add"]),
+    ...mapGetters(["addPrice"])
+  }
 };
 </script>
 
@@ -162,6 +204,70 @@ export default {
 * {
   margin: 0;
   padding: 0;
+}
+.elw-guige,
+.elw-jiajian {
+  float: right;
+  margin-top: -0.6rem;
+  font-size: 0.4rem;
+}
+.elw-bgg {
+  background: #4cd964;
+  text-align: center;
+}
+.elw-Fla {
+  flex: 1;
+}
+.elw-Right {
+  width: 3.14rem;
+  font-size: 0.5rem;
+  color: #fff;
+  line-height: 1.4rem;
+}
+.elw-Right p {
+  padding: 0 0.4rem;
+}
+.elw-myom p {
+  margin-top: 0.1rem;
+}
+.elw-myom .elw-fSz {
+  font-size: 0.3rem;
+  line-height: 0.6rem;
+  margin-top: 0;
+}
+.elw-myom {
+  color: #fff;
+  float: left;
+  font-size: 0.48rem;
+}
+.el-icon-shopping-cart-2 {
+  color: #fff;
+  font-size: 0.87rem;
+  line-height: 1.6rem;
+}
+.elw-bor {
+  margin-top: -0.66rem;
+  background: #3d3d3f;
+  border: 0.1rem solid #444;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+  text-align: center;
+  float: left;
+  margin-right: 0.4rem;
+}
+.elw-flex {
+  display: flex;
+}
+.elw-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 1.32rem;
+  width: 100%;
+  background: #3d3c42;
+  padding-left: 0.36rem;
+  box-sizing: border-box;
 }
 .elw-Mreg {
   display: block;
@@ -171,22 +277,6 @@ export default {
   background-color: #3190e8;
   border-radius: 0.2rem;
   border: 1px solid #3190e8;
-}
-.elw-Mvalue {
-  display: inline-block;
-  margin: 0 0.2rem;
-}
-.elw-guige,
-.elw-jiajian {
-  float: right;
-  margin-top: -0.6rem;
-  font-size: 0.4rem;
-}
-
-.el-icon-remove-outline,
-.el-icon-circle-plus-outline {
-  font-size: 0.6rem;
-  color: #3687e0;
 }
 .Bgnav a {
   color: #666;
@@ -346,9 +436,9 @@ export default {
   text-align: center;
 }
 
-.elr-active-color{
-	color: #3190e8;
-	border-bottom: 0.1rem solid #3190e8;
-	padding-bottom: 0.15rem;
+.elr-active-color {
+  color: #3190e8;
+  border-bottom: 0.1rem solid #3190e8;
+  padding-bottom: 0.15rem;
 }
 </style>

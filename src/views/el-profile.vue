@@ -3,7 +3,7 @@
     <div id="el-my">
       <el_Header>
         <div slot="elw-Left">
-          <span @click="$router.back()" class="el-icon-arrow-left"></span>
+          <span @click="back" class="el-icon-arrow-left"></span>
         </div>
         <div slot="elw-cont">
           <span class="elg-title">我的</span>
@@ -58,10 +58,12 @@
               <span class="iconfont">&#xe715;</span>
             </li>
           </router-link>
-          <li>
-            <i class="iconfont" style="color:#dd8172;">&#xe630;</i>积分商城
-            <span class="iconfont">&#xe715;</span>
-          </li>
+          <router-link to="/integral">
+            <li>
+              <i class="iconfont" style="color:#dd8172;">&#xe630;</i>积分商城
+              <span class="iconfont">&#xe715;</span>
+            </li>
+          </router-link>
           <router-link to="/vipcard">
             <li>
               <i class="iconfont" style="color:#ffc536;">&#xe600;</i
@@ -97,48 +99,77 @@
 <script>
 import el_Header from "./../components/el-header/el-header";
 import el_Footer from "../components/el-footer/el-footer";
+import el_choose from "../components/chooseAddress/el-chooseAddress";
 import Vue from "vue";
 export default {
-  components: { el_Header, el_Footer },
+  components: {el_Header, el_Footer},
   data() {
     return {
       haveUser: false,
-      login: "登陆/注册",
       imgUrl: "",
       gift_amount: 0, //优惠个数
       point: 0, //积分
-      loginInfo: ""
+      loginInfo: {
+        point: 0,
+        gift_amount: 0,
+        username: "登陆/注册",
+        avatar: ""
+      },
+      type: true
     };
   },
   methods: {
+    back() {
+      this.loginInfo.username == "登陆/注册"
+        ? this.$router.go(-3)
+        : this.$router.go(-2);
+      // this.$router.go(-1);
+    },
     goInfo() {
-      if (this.haveUser) {
-        // console.log(1);
+      if (localStorage.loginInfo != "") {
         location.href = "#/profile/info";
       } else {
         location.href = "#/login";
       }
     }
   },
-  created() {
-    this.$loading(true);
-    var loginInfo = JSON.parse(localStorage.loginInfo);
-    this.axios
-      .get("http://elm.cangdu.org/v1/user", {
-        params: {
-          user_id: loginInfo.user_id
+  watch: {
+    "$route.path"(a, b) {
+      if (localStorage.loginInfo == "") {
+        if (a == "/profile") {
+          this.loginInfo = {
+            point: 0,
+            gift_amount: 0,
+            username: "登陆/注册",
+            avatar: ""
+          };
         }
-      })
-      .then(data => {
-        this.$loading(false);
-        // console.log(data.data);
-        this.loginInfo = data.data;
-        this.haveUser = true;
-      });
-    // console.log(this.login);
-    // if (loginInfo) {
-    // }
-    // console.log(this.login);
+      }
+    }
+  },
+  created() {
+    // console.log(localStorage);
+    if (localStorage.loginInfo == "") {
+      return;
+    } else {
+      this.$loading(true);
+      var loginInfo = JSON.parse(localStorage.loginInfo);
+      this.axios
+        .get("http://elm.cangdu.org/v1/user", {
+          params: {
+            user_id: loginInfo.user_id
+          }
+        })
+        .then(data => {
+          this.$loading(false);
+          // console.log(data.data);
+          this.loginInfo.avatar = data.data.avatar;
+          this.loginInfo.username = data.data.username;
+          this.loginInfo.point = data.data.point;
+          this.loginInfo.gift_amount = data.data.gift_amount;
+          this.haveUser = true;
+        });
+    }
   }
 };
 </script>

@@ -14,13 +14,23 @@ const profile = () => import("../views/el-profile.vue");
 // 我的余额
 const balance = () => import("../views/el-balance.vue");
 // 我的余额下一级
-const balance_detail = () => import("../views/el-balance_detail.vue");
+const balance_detail = () => import("../views/child/el-balance_detail.vue");
 // 我的优惠
 const benefit = () => import("../views/el-benefit.vue");
+// 我的优惠下一级
+const hbDescrip = () => import("../views/child/el-benefit-hbDescription.vue");
+// 我的优惠下一级
+const coupon = () => import("../views/child/el-benefit-coupon.vue");
+// 我的优惠下一级
+const exchange = () => import("../views/child/el-benefit-exchange.vue");
+// 我的优惠下一级
+const history = () => import("../views/child/el-benefit-history.vue");
+// 我的优惠下一级
+const commend = () => import("../views/child/el-benefit-commend.vue");
 // 我的积分
 const points = () => import("../views/el-points.vue");
 // 我的积分
-const points_detail = () => import("../views/el-points_detail.vue");
+const points_detail = () => import("../views/child/el-points_detail.vue");
 // 会员卡
 const vipcard = () => import("../views/el-vipcard.vue");
 // 会员特权
@@ -57,6 +67,10 @@ const search = () => import("../views/el-search.vue");
 const order = () => import("../views/el-order.vue");
 // 食物 food
 const food = () => import("../views/el-food.vue");
+// 积分商城
+const integral = () => import("../views/el-integral.vue");
+//商品详情
+const Gxq = () => import("../views/el-Gxq.vue");
 
 Vue.use(VueRouter);
 
@@ -81,7 +95,16 @@ const routes = [
     path: "/login",
     name: "login",
     // 登录
-    component: login
+    component: login,
+    beforeEnter: (to, from, next) => {
+      if (to.path == "/login") {
+        if (localStorage.loginInfo == "") {
+          next();
+        } else {
+          next("/profile");
+        }
+      }
+    }
   },
   {
     path: "/forget",
@@ -94,6 +117,12 @@ const routes = [
     name: "msite",
     // 商品页
     component: msite
+  },
+  {
+    path: "/integral",
+    name: "integral",
+    // 积分商城
+    component: integral
   },
   {
     path: "/profile",
@@ -135,6 +164,11 @@ const routes = [
     ]
   },
   {
+    path: "/Gxq/:name/:img/:num/:my/:pl/:zhan",
+    name: "Gxq",
+    component: Gxq
+  },
+  {
     path: "/balance",
     name: "balance",
     // 我的余额
@@ -151,7 +185,34 @@ const routes = [
     path: "/benefit",
     name: "benefit",
     // 我的优惠
-    component: benefit
+    component: benefit,
+    children: [
+      {
+        path: "hbDescrip",
+        name: "hbDescrip",
+        component: hbDescrip
+      },
+      {
+        path: "coupon",
+        name: "coupon",
+        component: coupon
+      },
+      {
+        path: "exchange",
+        name: "exchange",
+        component: exchange
+      },
+      {
+        path: "commend",
+        name: "commend",
+        component: commend
+      },
+      {
+        path: "history",
+        name: "history",
+        component: history
+      }
+    ]
   },
   {
     path: "/points",

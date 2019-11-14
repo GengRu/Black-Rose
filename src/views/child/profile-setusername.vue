@@ -7,6 +7,7 @@
       <div slot="elw-cont">
         <span class="elg-title">修改用户名</span>
       </div>
+      <div slot="elr-right"></div>
     </el_Header>
     <div class="elt-setBox">
       <input
