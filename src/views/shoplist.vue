@@ -1,13 +1,5 @@
 <template>
-  <div id="shoplist" style="margin-top:50px;">
-    <div style="height:50px;position: fixed;top:0;left:0;z-index:9;width:100%;"> 
-      <p class="el-icon-arrow-left" @click="$router.back()" style="color:white;font-size:20px;margin-left:15px;"></p>
-    </div>
-    <!-- <el_Header style="margin-bottom:50px;">
-        <div slot="elw-Left">
-          <span @click="$router.back()" class="el-icon-arrow-left"></span>
-        </div>
-    </el_Header> -->
+  <div>
     <div class="elw-bag">
       <div class="elw-box">
         <div class="elw-bgimg">
@@ -157,8 +149,8 @@ export default {
       for (var i = 0; i < arr.length; i++) {
         nerr.push(arr[i].offsetTop);
         var ser = nerr[i] - aser;
-        // console.log(Math.abs(ser),ent)
-        if (ent == Math.abs(ser)  ) {
+        console.log(Math.abs(ser),Math.floor(ent))
+        if (Math.abs(ser) == Math.floor(ent) ) {
           this.index = i;
         }
       }
@@ -275,7 +267,6 @@ export default {
   background-color: #3190e8;
   border-radius: 0.2rem;
   border: 1px solid #3190e8;
-  
 }
 .Bgnav a {
   color: #666;
