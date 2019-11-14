@@ -55,11 +55,12 @@ const shoplist = () => import("../views/shoplist.vue");
 const search = () => import("../views/el-search.vue");
 // 订单
 const order = () => import("../views/el-order.vue");
+// 积分商城
+const integral = () => import("../views/el-integral.vue");
 
 Vue.use(VueRouter);
 
-const routes = [
-  {
+const routes = [{
     path: "/",
     redirect: "/home"
   },
@@ -94,56 +95,53 @@ const routes = [
     component: msite
   },
   {
+    path: "/integral",
+    name: "integral",
+    // 积分商城
+    component: integral
+  },
+  {
     path: "/profile",
     name: "profile",
     // 我的
     component: profile,
-    children: [
-      {
-        path: "info",
-        name: "info",
-        component: info,
-        children: [
-          {
-            path: "setusername",
-            name: "setusername",
-            component: setusername
-          },
-          {
-            path: "address",
-            name: "address",
-            component: address,
-            children: [
-              {
-                path: "newadd",
-                name: "newadd",
-                component: newadd,
-                children: [
-                  {
-                    path: "adddetail",
-                    name: "adddetail",
-                    component: adddetail
-                  }
-                ]
-              }
-            ]
-          }
-        ]
-      }
-    ]
+    children: [{
+      path: "info",
+      name: "info",
+      component: info,
+      children: [{
+          path: "setusername",
+          name: "setusername",
+          component: setusername
+        },
+        {
+          path: "address",
+          name: "address",
+          component: address,
+          children: [{
+            path: "newadd",
+            name: "newadd",
+            component: newadd,
+            children: [{
+              path: "adddetail",
+              name: "adddetail",
+              component: adddetail
+            }]
+          }]
+        }
+      ]
+    }]
   },
   {
     path: "/balance",
     name: "balance",
     // 我的余额
     component: balance,
-    children: [
-      {
-        path: "balance_detail",
-        name: "balance_detail",
-        component: balance_detail
-      }
-    ]
+    children: [{
+      path: "balance_detail",
+      name: "balance_detail",
+      component: balance_detail
+    }]
   },
   {
     path: "/benefit",
@@ -156,21 +154,18 @@ const routes = [
     name: "points",
     // 我的积分
     component: points,
-    children: [
-      {
-        path: "points_detail",
-        name: "points_detail",
-        component: points_detail
-      }
-    ]
+    children: [{
+      path: "points_detail",
+      name: "points_detail",
+      component: points_detail
+    }]
   },
   {
     path: "/vipcard",
     name: "vipcard",
     // 会员卡
     component: vipcard,
-    children: [
-      {
+    children: [{
         path: "vipDescription",
         name: "vipDescription",
         //会员说明
@@ -201,13 +196,11 @@ const routes = [
     name: "service",
     // 服务
     component: service,
-    children: [
-      {
-        path: "questionDetail",
-        name: "questionDetail",
-        component: questionDetail
-      }
-    ]
+    children: [{
+      path: "questionDetail",
+      name: "questionDetail",
+      component: questionDetail
+    }]
   },
   {
     path: "/download",
