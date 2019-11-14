@@ -54,27 +54,24 @@
                 </div>
                 <div class="elw-modelsk" v-for="(s, $sn) in a.foods" :key="$sn">
                   <div class="elw-modle">
-                    <img
-                      :src="'http://elm.cangdu.org/img/' + s.image_path"
-                      alt
-                    />
+                    <router-link :to="{name:'Gxq',params:{name:s.name,img:s.image_path,num:s.rating,my:s.specfoods[0].price,pl:s.tips,zhan:s.satisfy_rate}}">
+                    <img :src="'http://elm.cangdu.org/img/' + s.image_path" alt />
+                    </router-link>
                   </div>
                   <div class="elw-modre clearfix">
                     <div class="elw-Mname">{{ s.name }}</div>
                     <div class="elw-Mmin">{{ s.description }}</div>
                     <div class="elw-Msc">{{ s.tips }}</div>
                     <div class="elw-MIcon" v-if="s.activity != null">
+                      
                       <span class="elw-Micon">{{ s.activity.image_text }}</span>
                     </div>
                     <div class="elw-Mparc" v-if="s.specfoods.length != 0">
                       ￥{{ s.specfoods[0].price }}
                       <span v-if="s.specfoods.length >= 2">起</span>
                     </div>
-                    <div class="elw-guige" v-if="s.specfoods.length >= 2">
-                      <span class="elw-Mreg">选规格</span>
-                    </div>
-                    <div class="elw-jiajian" v-if="s.specfoods.length <= 1">
-                      <eladd v-model="s.__v"></eladd>
+                    <div class="elw-jiajian" >
+                         <eladd v-model="s.__v"></eladd>
                     </div>
                   </div>
                 </div>
@@ -144,6 +141,7 @@ export default {
       .then(data => {
         this.$loading(false);
         this.larr = data.data;
+        console.log(data.data)
       });
   },
   methods: {

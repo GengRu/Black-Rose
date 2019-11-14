@@ -67,6 +67,8 @@ const search = () => import("../views/el-search.vue");
 const order = () => import("../views/el-order.vue");
 // 积分商城
 const integral = () => import("../views/el-integral.vue");
+//商品详情
+const Gxq = () => import("../views/el-Gxq.vue");
 
 Vue.use(VueRouter);
 
@@ -158,6 +160,11 @@ const routes = [
         ]
       }
     ]
+  },
+  {
+    path: "/Gxq/:name/:img/:num/:my/:pl/:zhan",
+    name: "Gxq",
+    component: Gxq
   },
   {
     path: "/balance",
