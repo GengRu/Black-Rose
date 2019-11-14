@@ -149,8 +149,8 @@ export default {
       for (var i = 0; i < arr.length; i++) {
         nerr.push(arr[i].offsetTop);
         var ser = nerr[i] - aser;
-        console.log(Math.abs(ser),Math.floor(ent))
-        if (Math.abs(ser) == Math.floor(ent) ) {
+        // console.log(Math.abs(ser),Math.floor(ent))
+        if (Math.abs(ser) <= Math.floor(ent) ) {
           this.index = i;
         }
       }
