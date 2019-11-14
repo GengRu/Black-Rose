@@ -58,10 +58,12 @@
               <span class="iconfont">&#xe715;</span>
             </li>
           </router-link>
-          <li>
-            <i class="iconfont" style="color:#dd8172;">&#xe630;</i>积分商城
-            <span class="iconfont">&#xe715;</span>
-          </li>
+          <router-link to="/integral">
+            <li>
+              <i class="iconfont" style="color:#dd8172;">&#xe630;</i>积分商城
+              <span class="iconfont">&#xe715;</span>
+            </li>
+          </router-link>
           <router-link to="/vipcard">
             <li>
               <i class="iconfont" style="color:#ffc536;">&#xe600;</i

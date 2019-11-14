@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div class="elw-contrain">
-      <div class="elw-sention">
+    <div class="elw-contrain ">
+      <div class="elw-sention clearfix">
         <div class="elw-Timg">
           <slot name="el-Timg"></slot>
         </div>
@@ -40,11 +40,20 @@ export default {};
 </script>
 
 <style>
+.clearfix:after {
+  content: "";
+  clear: both;
+  display: block;
+}
 .elw-contrain * {
   color: #fff;
 }
 .elw-pulik div {
   font-size: 0.26rem;
+  width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 .elw-minT div {
   font-size: 0.3rem;
@@ -76,7 +85,7 @@ export default {};
   overflow: hidden;
 }
 .elw-sention {
-  overflow: hidden;
+  /* overflow: hidden; */
   margin-bottom: 0.48rem;
 }
 .elw-Timg {
