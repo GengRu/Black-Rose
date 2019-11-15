@@ -194,11 +194,11 @@ export default {
     if (localStorage.loginInfo == "") {
       this.flag = false;
     } else {
+      var id = JSON.parse(localStorage.loginInfo).user_id;
       this.flag = true;
       this.axios
-        .get("http://elm.cangdu.org/v1/users/43924/addresses")
+        .get("http://elm.cangdu.org/v1/users/" + id + "/addresses")
         .then(data => {
-          console.log(data.data);
           this.arr = data.data;
         });
     }

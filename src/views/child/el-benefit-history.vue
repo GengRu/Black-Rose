@@ -42,7 +42,7 @@ export default {
             "/expired_hongbaos?limit=20&offset=0"
         )
         .then(data => {
-          console.log(data);
+          // console.log(data);
           this.arr = data.data.slice(0, 4);
         });
     }

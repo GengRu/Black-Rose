@@ -37,7 +37,7 @@ export default {
   },
   methods: {
     btn() {
-      this.$emit("sureAdd", this.data);
+      // this.$emit("sureAdd", this.data);
     }
   }
 };

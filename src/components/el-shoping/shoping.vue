@@ -17,7 +17,7 @@
           </div>
         </div>
         <div class="elw-rig">
-          <router-link to="/" class="el-icon-arrow-right"></router-link>
+          <router-link :to="{name:'sjxq',params:{id:index}}" class="el-icon-arrow-right"></router-link>
         </div>
       </div>
       <div class="elw-Tfoot">
@@ -36,7 +36,16 @@
 </template>
 
 <script>
-export default {};
+export default {
+ data(){
+   return{
+     index:''
+   }
+ },
+ created(){
+   this.index=this.$route.params.id
+ }
+};
 </script>
 
 <style>
