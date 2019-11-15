@@ -14,7 +14,9 @@
       </div>
     </el_Header>
     <router-link to="/sureOrder/chooseAdd">
-      123
+      <div v-for="(i, $i) in arr.slice(0, 1)" :key="$i">
+        <el_chAdd :json="i"></el_chAdd>
+      </div>
     </router-link>
     <div class="elt-tookTime">
       <div class="elt-info">送达时间</div>
@@ -62,7 +64,7 @@
       </div>
       <div class="elt-orderShop">
         <div>配送费</div>
-        <div>￥{{ order.length ? 4 : 0 }}元</div>
+        <div>￥{{ order.length ? 5 : 0 }}元</div>
       </div>
       <div class="elt-orderShop bt">
         <div>订单 ￥{{ totalPrice }}</div>
@@ -123,13 +125,17 @@
       </transition>
     </div>
     <el_showMove>
-      <router-view slot="view" mode="out-in"></router-view>
+      <router-view slot="view" mode="out-in" @type="typeRemark"></router-view>
     </el_showMove>
   </div>
 </template>
 
 <script>
+import el_chAdd from "../components/chooseAddress/el-chooseAddress";
 export default {
+  components: {
+    el_chAdd
+  },
   data() {
     return {
       nowTime: "",
@@ -138,7 +144,8 @@ export default {
       order: "",
       remark: "口味，偏好等",
       invoice: "不需要开发票",
-      flag: ""
+      flag: "",
+      arr: []
     };
   },
   computed: {
@@ -151,7 +158,7 @@ export default {
     },
     totalPrice() {
       var n = 0;
-      n = this.num + (this.order.length ? 4 : 0) + this.$store.getters.addPrice;
+      n = this.num + (this.order.length ? 5 : 0) + this.$store.getters.addPrice;
       return n;
     }
   },
@@ -176,6 +183,11 @@ export default {
           function() {}
         );
       }
+    },
+    typeRemark(a) {
+      if (a) {
+        this.remark = a;
+      }
     }
   },
   created() {
@@ -183,6 +195,12 @@ export default {
       this.flag = false;
     } else {
       this.flag = true;
+      this.axios
+        .get("http://elm.cangdu.org/v1/users/43924/addresses")
+        .then(data => {
+          console.log(data.data);
+          this.arr = data.data;
+        });
     }
     if (localStorage.shop) {
       this.shop = JSON.parse(localStorage.shop);
@@ -199,7 +217,7 @@ export default {
 
 <style scoped>
 .elt-sureOrder {
-  margin-top: 1.68rem;
+  margin-top: 1.4rem;
   background-color: #f5f5f5;
 }
 .elt-tookTime {

@@ -1,5 +1,5 @@
 <template>
-  <div id="chooseAddress">
+  <div id="chooseAddress" @click="btn">
     <div class="elj-choose">
       <div class="elj-choose-item">
         <div class="elj-l">
@@ -7,10 +7,19 @@
         </div>
         <div class="elj-r">
           <div class="elj-choose-item-t">
-            <p class="elj-name">天天<span class="elj-names">先生</span></p>
+            <p class="elj-name">
+              {{ data.name }}
+              <span class="elj-names">
+                {{ data.sex == "1" ? "先生" : "女士" }}
+              </span>
+              <span>{{ data.phone }}</span>
+            </p>
           </div>
           <div class="elj-choose-item-b">
-            <p class="elj-con"><span class="elj-ff">11</span></p>
+            <p class="elj-con">
+              <span class="elj-ff">{{ data.tag }}</span>
+              <span class="elj-fz">{{ data.address_detail }}</span>
+            </p>
           </div>
         </div>
       </div>
@@ -19,10 +28,26 @@
 </template>
 
 <script>
-export default {};
+export default {
+  props: ["json"],
+  data() {
+    return {
+      data: this.json
+    };
+  },
+  methods: {
+    btn() {
+      this.$emit("sureAdd", this.data);
+    }
+  }
+};
 </script>
 
 <style scoped>
+#chooseAddress {
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+}
 .elj-l {
   float: left;
   align-items: center;
@@ -31,6 +56,9 @@ export default {};
 }
 .elj-r {
   float: left;
+}
+.elj-choose-item-t {
+  margin-bottom: 0.3rem;
 }
 .elj-choose-item {
   overflow: hidden;
@@ -54,11 +82,16 @@ export default {};
   float: left;
   border-radius: 0.1rem;
   color: white;
+  margin-right: 0.4rem;
 }
 .elj-con {
   overflow: hidden;
+  display: flex;
 }
 .biao {
   font-size: 0.53rem;
+}
+.elj-fz {
+  font-size: 0.4rem;
 }
 </style>

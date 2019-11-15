@@ -12,24 +12,54 @@
     <div class="elg-remark">
       <div class="elg-remark-font">快速备注</div>
       <div class="elg-remark-item">
-        <ul>
-          <li v-for="i in remarks" :key="i.i">
+        <div ref="item">
+          <li>
             <span
-              v-for="item in i"
-              :key="item"
-              @click="chooseType(item)"
-              ref="item"
-              >{{ item }}</span
+              v-for="(i, $i) in arr1"
+              :key="$i"
+              @click="index = $i"
+              :class="index == $i ? 'chooseType' : ''"
+              >{{ i }}</span
             >
           </li>
-        </ul>
+          <li>
+            <span @click="a = 0" :class="a == 0 ? 'chooseType' : ''">
+              不要香菜
+            </span>
+          </li>
+          <li>
+            <span @click="b = 0" :class="b == 0 ? 'chooseType' : ''">
+              不要洋葱
+            </span>
+          </li>
+          <li>
+            <span @click="c = 0" :class="c == 0 ? 'chooseType' : ''">
+              多点醋
+            </span>
+          </li>
+          <li>
+            <span @click="d = 0" :class="d == 0 ? 'chooseType' : ''">
+              多点葱
+            </span>
+          </li>
+          <li>
+            <span
+              v-for="(j, $j) in arr2"
+              :key="$j"
+              @click="i = $j"
+              :class="i == $j ? 'chooseType' : ''"
+            >
+              {{ j }}
+            </span>
+          </li>
+        </div>
       </div>
     </div>
     <div style="background:#fff;padding-bottom:0.6rem;">
       <div class="elg-other-font">其他备注</div>
       <div class="elg-write" contenteditable="true">请输入备注内容(可不填)</div>
     </div>
-    <div class="elg-button">确定</div>
+    <div class="elg-button" @click="btn">确定</div>
   </div>
 </template>
 
@@ -37,31 +67,38 @@
 export default {
   data() {
     return {
+      index: -1,
+      i: -1,
+      a: -1,
+      b: -1,
+      c: -1,
+      d: -1,
       remarks: "",
-      arr: []
+      arr: [],
+      arr1: ["不要辣", "少点辣", "多点辣"],
+      arr2: ["去冰", "少冰"]
     };
   },
   methods: {
-    chooseType(item) {
-      console.log(item);
-      this.arr.map(el => {
-        if (this.arr.indexOf(item) == -1) {
-          console.log(123);
-          return;
+    btn() {
+      var item = this.$refs.item.children;
+      for (var i = 0; i < item.length; i++) {
+        for (var j = 0; j < item[i].children.length; j++) {
+          // console.log(item[i].children[j]);
+          if (item[i].children[j].className == "chooseType") {
+            this.arr.push(item[i].children[j].innerText);
+          }
         }
-        this.arr.push(item);
-      });
-      // this.$refs.item[$i].style.background = "#3190e8";
-      // this.$refs.item[$i].style.color = "#fff";
-      console.log(this.arr);
+      }
+      var str = this.arr.join(",");
+      this.$emit("type", str);
+      this.$router.back();
     }
   },
   created() {
-    console.log(this.arr);
     this.axios
       .get("http://elm.cangdu.org/v1/carts/111708/remarks?sig=987953")
       .then(data => {
-        // console.log(data.data.remarks);
         this.remarks = data.data.remarks;
       });
   }
@@ -111,19 +148,16 @@ export default {
 .elg-remark-item li span {
   color: #333;
   font-size: 0.4rem;
-  margin-right: 0.4rem;
-  padding: 0.17rem 0.2rem;
+  padding: 0.17rem 0.35rem;
   border-radius: 0.1rem;
-  border: 0.02rem solid #3190e8;
 }
-.elg-remark-item li:nth-child(1) {
-  width: 47%;
+.elg-remark-item li {
   height: 0.9rem;
   line-height: 0.9rem;
   border-radius: 0.2rem;
   border: 0.02rem solid #3190e8;
   margin-bottom: 0.4rem;
-  margin-right: 0.4rem;
+  margin-right: 0.3rem;
 }
 .elg-remark-item li:nth-child(1) span,
 .elg-remark-item li:nth-child(6) span {
@@ -136,8 +170,6 @@ export default {
   border-left: 0.02rem solid #3190e8;
 }
 .elg-remark-item li:nth-child(6) {
-  display: block;
-  width: 23.2%;
   height: 0.9rem;
   line-height: 0.9rem;
   border-radius: 0.2rem;
