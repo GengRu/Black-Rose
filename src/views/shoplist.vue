@@ -130,6 +130,7 @@ export default {
       )
       .then(data => {
         this.data = data.data;
+        console.log(data.data)
       });
     this.$loading(true);
     this.axios
@@ -141,7 +142,7 @@ export default {
       .then(data => {
         this.$loading(false);
         this.larr = data.data;
-        console.log(data.data)
+        // console.log(data.data)
       });
   },
   methods: {

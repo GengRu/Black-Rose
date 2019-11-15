@@ -69,6 +69,10 @@ const order = () => import("../views/el-order.vue");
 const integral = () => import("../views/el-integral.vue");
 //商品详情
 const Gxq = () => import("../views/el-Gxq.vue");
+//商家详情
+const sjxq = () => import("../views//el-sjxq.vue");
+//食品安全监督
+const qiye = () => import("../views/qiye.vue");
 
 Vue.use(VueRouter);
 
@@ -82,6 +86,26 @@ const routes = [
     name: "home",
     // 首页
     component: Home
+  },
+   {
+    path: "/qiye",
+    name: "qiye",
+    // 首页
+    component: qiye
+  },
+  {
+    path: "/sjxq/:id",
+    name: "sjxq",
+    // 首页
+    component: sjxq,
+    // children: [
+    //   {
+    //     path: "qiye",
+    //     name: "qiye",
+    //     //食品安全监督
+    //     component: qiye
+    //   }
+    // ]
   },
   {
     path: "/city/:id/:names",
