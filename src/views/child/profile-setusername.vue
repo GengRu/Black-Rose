@@ -46,12 +46,12 @@ export default {
     btnSure() {
       if (this.type && this.value != "") {
         var a = JSON.parse(localStorage.loginInfo);
-        console.log(a);
+        // console.log(a);
         a.username = this.value;
-        console.log(a);
+        // console.log(a);
         // a.username = this.value;
         localStorage.loginInfo = JSON.stringify(a);
-        console.log(localStorage);
+        // console.log(localStorage);
         // localStorage.loginInfo.username = this.value;
         this.$router.back();
         // console.log(localStorage.loginInfo.username);

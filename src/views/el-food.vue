@@ -70,7 +70,15 @@
 		
 		<div class="elr-food-cont" v-for="(i, $idx) in dataArr" :key="$idx">
 			<router-link
-			  :to="{ name: 'shoplist', params: { geohash: i.latitude, id: i.id } }"
+			  :to="{
+			    name: 'shoplist',
+			    params: {
+			      geohash: i.latitude,
+			      id: i.id,
+			      name: i.name,
+			      img: i.image_path
+			    }
+			  }"
 			>
 				<div class="elr-food-cont-img">
 					<img :src="'http:////elm.cangdu.org/img/'+i.image_path">
@@ -207,7 +215,7 @@
 							}, 300);
 						})
 					} else{
-						console.log(2)
+						// console.log(2)
 						var str2 = ''
 						for(var j=0; j<this.checkList.length; j++){
 							str2 += '&support_ids[]='+this.checkList[j]
@@ -259,7 +267,7 @@
 			this.axios.get(
 				'http://elm.cangdu.org/shopping/restaurants?latitude=32.054366&longitude=118.79427&offset=0&limit=20&extras[]=activities&keyword=&restaurant_category_id=220&restaurant_category_ids[]=&order_by=&delivery_mode[]='
 			).then(data => {
-				console.log(data.data)
+				// console.log(data.data)
 				this.dataArr = data.data
 			})
 

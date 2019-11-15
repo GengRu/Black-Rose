@@ -43,10 +43,10 @@ export default {
   },
   methods: {
     chooseType(item) {
-      console.log(item);
+      // console.log(item);
       this.arr.map(el => {
         if (this.arr.indexOf(item) == -1) {
-          console.log(123);
+          // console.log(123);
           return;
         }
         this.arr.push(item);
@@ -57,7 +57,7 @@ export default {
     }
   },
   created() {
-    console.log(this.arr);
+    // console.log(this.arr);
     this.axios
       .get("http://elm.cangdu.org/v1/carts/111708/remarks?sig=987953")
       .then(data => {

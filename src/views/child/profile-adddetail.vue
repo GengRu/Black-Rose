@@ -38,7 +38,7 @@ export default {
       this.axios
         .get("http://elm.cangdu.org/v1/pois?type=nearby&keyword=" + this.value)
         .then(data => {
-          console.log(data.data);
+          // console.log(data.data);
         });
     }
   }
