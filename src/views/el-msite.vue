@@ -22,7 +22,15 @@
     </div>
     <div v-for="(i, $index) in list_arr" :key="$index">
       <router-link
-        :to="{ name: 'shoplist', params: { geohash: i.latitude, id: i.id } }"
+        :to="{
+          name: 'shoplist',
+          params: {
+            geohash: i.latitude,
+            id: i.id,
+            name: i.name,
+            img: i.image_path
+          }
+        }"
       >
         <el_hotList>
           <div slot="el-conImg">

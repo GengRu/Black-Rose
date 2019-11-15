@@ -80,7 +80,7 @@ export default {
           tag_type: 4
         })
         .then(data => {
-          console.log(data.data);
+          // console.log(data.data);
           // alert(1);
         });
     },

@@ -11,9 +11,9 @@
     </el_Header>
     <div class="elt-searchBox">
       <div class="elt-search">
-        <input type="text" placeholder="小区/写字楼/学校等" />
+        <input type="text" placeholder="小区/写字楼/学校等" v-model="value" />
       </div>
-      <div class="elt-sure">确认</div>
+      <div class="elt-sure" @click="btn">确认</div>
     </div>
     <div class="elt-warnpart">
       为了满足商家的送餐要求，建议您从列表中选择地址
@@ -27,7 +27,22 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      value: ""
+    };
+  },
+  methods: {
+    btn() {
+      this.axios
+        .get("http://elm.cangdu.org/v1/pois?type=nearby&keyword=" + this.value)
+        .then(data => {
+          // console.log(data.data);
+        });
+    }
+  }
+};
 </script>
 
 <style scoped>

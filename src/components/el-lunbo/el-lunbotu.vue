@@ -7,8 +7,10 @@
           :key="$idx"
           class="elr-lunbo-box"
         >
-          <div class="elr-lunbo-box-img"><img :src="url + i.image_url" /></div>
-          <div class="elr-lunbo-box-tt">{{ i.title }}</div>
+		<router-link :to="'/food/'+i.title">
+			<div class="elr-lunbo-box-img"><img :src="url + i.image_url" /></div>
+			<div class="elr-lunbo-box-tt">{{ i.title }}</div>
+		</router-link>
         </div>
       </mt-swipe-item>
 
@@ -18,8 +20,10 @@
           :key="$idx"
           class="elr-lunbo-box"
         >
+		<router-link :to="'/food/'+i.title">
           <div class="elr-lunbo-box-img"><img :src="url + i.image_url" /></div>
           <div class="elr-lunbo-box-tt">{{ i.title }}</div>
+		</router-link>
         </div>
       </mt-swipe-item>
     </mt-swipe>
@@ -76,6 +80,7 @@ export default {
 .elr-lunbo-box-tt {
   padding: 0.5rem 0;
   font-size: 0.38rem;
+  color: #666;
 }
 
 #lunbo .mint-swipe-indicators {

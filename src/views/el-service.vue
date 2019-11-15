@@ -55,10 +55,10 @@ export default {
   },
   components: { sevre },
   created() {
-    console.log(this.type);
+    // console.log(this.type);
     this.axios.get("http://elm.cangdu.org/v3/profile/explain").then(data => {
       this.data = data.data;
-      console.log(this.data);
+      // console.log(this.data);
       for (let as in this.data) {
         var str = as.substring(as.length + 1, as.lastIndexOf("C"));
         if (str == "Caption") {

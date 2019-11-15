@@ -1,0 +1,39 @@
+<template>
+  <div class="elt-chooseAdd">
+    <el_Header>
+      <div slot="elw-Left">
+        <span @click="$router.back()" class="el-icon-arrow-left"></span>
+      </div>
+      <div slot="elw-cont">
+        选择地址
+      </div>
+      <div slot="elr-right"></div>
+    </el_Header>
+    <div class="elt-chooseCont">12343121</div>
+  </div>
+</template>
+
+<script>
+export default {};
+</script>
+
+<style scoped>
+.elt-chooseAdd {
+  position: fixed;
+  width: 100%;
+  height: 240%;
+  background-color: #fff;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  min-height: 5rem;
+  box-sizing: border-box;
+  align-items: center;
+  font-size: 0.4rem;
+}
+.elt-chooseCont {
+  margin-top: 1.68rem;
+}
+</style>
