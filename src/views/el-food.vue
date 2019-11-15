@@ -66,45 +66,50 @@
 				</div>
 			</div>
 		</div>
-
+		
+		
 		<div class="elr-food-cont" v-for="(i, $idx) in dataArr" :key="$idx">
-			<div class="elr-food-cont-img">
-				<img :src="'http:////elm.cangdu.org/img/'+i.image_path">
-			</div>
-
-			<div class="elr-food-cont-right">
-				<div class="elr-food-cont-right-title">
-					<span class="elr-food-cont-right-title-login">品牌</span>
-					<span class="elr-food-cont-right-title-name">{{i.name}}</span>
-					<span class="elr-food-cont-right-title-right">
-						<span>保</span>
-						<span>准</span>
-						<span>票</span>
-					</span>
+			<router-link
+			  :to="{ name: 'shoplist', params: { geohash: i.latitude, id: i.id } }"
+			>
+				<div class="elr-food-cont-img">
+					<img :src="'http:////elm.cangdu.org/img/'+i.image_path">
 				</div>
 
-				<div class="elr-food-cont-right-xing">
-					<el-rate v-model="i.rating" disabled show-score text-color="#ff9900" score-template="{value}">
-					</el-rate>
-					月售{{i.recent_order_num}}单
-
-					<div class="elr-food-cont-right-xing-title" v-if="i.delivery_mode">
-						<span class="elr-food-cont-right-xing-title1">{{i.delivery_mode.text}}</span>
-						<span class="elr-food-cont-right-xing-title2">准时达</span>
+				<div class="elr-food-cont-right">
+					<div class="elr-food-cont-right-title">
+						<span class="elr-food-cont-right-title-login">品牌</span>
+						<span class="elr-food-cont-right-title-name">{{i.name}}</span>
+						<span class="elr-food-cont-right-title-right">
+							<span>保</span>
+							<span>准</span>
+							<span>票</span>
+						</span>
 					</div>
 
+					<div class="elr-food-cont-right-xing">
+						<el-rate v-model="i.rating" disabled show-score text-color="#ff9900" score-template="{value}">
+						</el-rate>
+						月售{{i.recent_order_num}}单
+
+						<div class="elr-food-cont-right-xing-title" v-if="i.delivery_mode">
+							<span class="elr-food-cont-right-xing-title1">{{i.delivery_mode.text}}</span>
+							<span class="elr-food-cont-right-xing-title2">准时达</span>
+						</div>
+
+					</div>
+
+					<div class="elr-food-cont-right-foot">
+						<div class="elr-food-cont-right-foot-left">
+							￥{{i.float_minimum_order_amount}}起送 / {{i.piecewise_agent_fee.tips}}
+						</div>
+
+						<div class="elr-food-cont-right-foot-right">
+							{{i.distance}} / <span>{{i.order_lead_time}}</span>
+						</div>
+					</div>
 				</div>
-
-				<div class="elr-food-cont-right-foot">
-					<div class="elr-food-cont-right-foot-left">
-						￥{{i.float_minimum_order_amount}}起送 / {{i.piecewise_agent_fee.tips}}
-					</div>
-
-					<div class="elr-food-cont-right-foot-right">
-						{{i.distance}} / <span>{{i.order_lead_time}}</span>
-					</div>
-				</div>
-			</div>
+			</router-link>	
 		</div>
 
 	</div>
@@ -254,7 +259,7 @@
 			this.axios.get(
 				'http://elm.cangdu.org/shopping/restaurants?latitude=32.054366&longitude=118.79427&offset=0&limit=20&extras[]=activities&keyword=&restaurant_category_id=220&restaurant_category_ids[]=&order_by=&delivery_mode[]='
 			).then(data => {
-				// console.log(data.data)
+				console.log(data.data)
 				this.dataArr = data.data
 			})
 
